@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+{% block title %}
+    Incomplete Tasks
+{% endblock %}
+
+{% block content %}
+        {% load static %}
+
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+
+<h1 class="underlined-title">Incomplete Tasks</h1>
+<table>
+    {% for item in object_list %}
+        {% if not item.completed %}
+        <tr>
+            <td>
+                <form method="POST" action="{% url 'status' part_id=item.id %}">
+                    {% csrf_token %}
+                    <input
+                        type="checkbox"
+                        name="completed"
+                        onchange="this.form.submit()"
+                        {% if item.completed %} checked {% endif %}>
+                </form>
+            </td>
+            <td>{{ item.text }}</td>
+            <td class="due-date">{{ item.due_date }}</td>
+            {% if item.picture %}
+                <td><img src="{{ item.picture.url }}" class="task-image" alt="{{ item.text }}"></td>
+            {% else %}
+                <td class="empty-cell"></td>
+            {% endif %}
+        </tr>
+        {% endif %}
+    {% endfor %}
+</table>
+{% endblock %}

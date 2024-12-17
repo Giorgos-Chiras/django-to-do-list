@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Add Task
+{% endblock %}
+
+{% block content %}
+        {% load static %}
+
+    <link rel="stylesheet" href="{% static 'edit.css' %}">
+<form action="{% url 'edit_task' part_id=part_id %}" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+
+      <div class="form-group">
+            <label for="id_name" class="form-label">Name:</label>
+            <div class="form-field">{{ form.text }}</div>
+      </div>
+
+      <div class="form-group">
+            <label for="id_date" class="form-label">{{ form.due_date.label }}</label>
+            <div class="form-field">{{ form.due_date }}</div>
+      </div>
+
+      <div class="form-group">
+            <label for="id_image" class="form-label">{{ form.picture.label }}</label>
+            <div class="form-field">{{ form.picture }}</div>
+      </div>
+
+      <button type="submit" class="submit-button">Save</button>
+   <a href="../todolist"><button type="reset" class="cancel_button">Cancel</button></a>
+
+</form>
+{% endblock %}

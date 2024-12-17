@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+            Register
+        {% endblock %}
+    </title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'register.css' %}">
+</head>
+
+<body>
+    <!-- Header Section -->
+    <div class="header">
+        <h1>To Do List</h1>
+        <h3>A small project by Giorgos Chiras</h3>
+    </div>
+
+    <!-- Register Form -->
+    <h1><u>Register</u></h1>
+<form class="form-with-validation" method="post">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    <div>
+        {{ form.email.errors }}
+        {{ form.email }}
+    </div>
+    <div>
+        {{ form.username.errors }}
+        {{ form.username }}
+    </div>
+    <div>
+        {{ form.password1.errors }}
+        {{ form.password1 }}
+    </div>
+    <div>
+        {{ form.password2.errors }}
+        {{ form.password2}}
+    </div>
+    <button type="submit">Register</button>
+</form>
+
+
+    <br>
+    <a href="/login">Already a member? Login</a>
+</body>
+
+</html>

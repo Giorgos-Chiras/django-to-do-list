@@ -1,0 +1,51 @@
+form {
+    margin: 2rem;
+    padding: 1rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 80%;
+}
+
+.form-group {
+    display: flex;
+    margin-top: 1rem;
+}
+
+.form-label {
+    width: 150px;
+    font-weight: bold;
+}
+
+.form-field {
+    flex-grow: 1;
+}
+
+.submit-button {
+    margin-top: 1.5rem;
+    padding: 0.5rem 2rem;
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+.cancel_button {
+    margin-top: 1.5rem;
+    padding: 0.5rem 2rem;
+    background-color: #ff0000;
+    color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+.cancel_button:hover {
+    background-color: #670b0b;
+}
+
+.submit-button:hover {
+    background-color: #45a049;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+            Login
+        {% endblock %}
+    </title>
+
+    <!-- Load Static Files -->
+    {% load static %}
+    <!-- Link to External CSS File -->
+    <link rel="stylesheet" href="{% static 'login.css' %}">
+</head>
+
+<body>
+    <!-- Header Section -->
+    <div class="header">
+        <h1>To Do List</h1>
+        <h3>A small project by Giorgos Chiras</h3>
+    </div>
+
+    <!-- Login Form -->
+    <form class="form-with-validation" action="/login/" method="post">
+        {% csrf_token %}
+        <input type="text" placeholder="Username" name="username">
+        <br><br>
+        <input type="password" placeholder="Password" name="password">
+        <br><br>
+        <button type="submit">Login</button>
+
+        {% if error_message %}
+            <p>{{ error_message }}</p>
+        {% endif %}
+    </form>
+
+    <br>
+    <a href="/register">Not a member? Register</a>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    About The Developer
+{% endblock %}
+
+{% block content %}    
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'about.css' %}">
+<h1 class="centered-title"><u>About The Developer</u></h1>
+<p class="centered-text">
+    I'm Giorgos Chiras, a 20-year-old Computer Engineering student from 
+    Cyprus with a passion for becoming a skilled programmer. 
+    My fascination with computers and video games started 
+    young and has led me to pursue programming as a career.
+    My passion for programming continues to grow, and I 
+    am always excited to learn more and improve my skills.
+</p>
+<h3 class="centered-subtitle"><u>The road ahead for me</u></h3>
+<p class="centered-text">
+    The road ahead for me is clear. In the short term, I plan to 
+    complete my Bachelor's degree in Computer Engineering 
+    and aim to secure an internship to gain practical 
+    experience. After that, I hope to start my career as 
+    a software engineer and pursue a Master’s degree in 
+    Software Engineering. I dream of creating a revolutionary 
+    application that will make a positive impact on millions
+    of people's daily lives.
+</p>
+{% endblock %}

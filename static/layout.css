@@ -1,0 +1,60 @@
+/* Header Section */
+.header {
+    background-color: #0b0000;
+    padding: 1px;
+}
+
+.header h1 {
+    color: #670e67;
+    text-align: center;
+    font-size: 100px;
+    font-family: 'Cambria Math', serif;
+    margin-top: 0px;
+    margin-bottom: -30px;
+}
+
+.header h3 {
+    color: #670e67;
+    text-align: center;
+}
+
+/* Navigation Section */
+nav {
+    display: flex;
+    background: #0b0000;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+nav .nav-links {
+    font-size: 50px;
+
+}
+
+nav small {
+    font-size: 20px;
+    margin-top: 30px;
+    color: #670e67;
+}
+logout {
+    display: flex;
+    justify-content: left;
+}
+
+nav small a {
+    color: red;
+}
+
+/* Body Styling */
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #ffffff;
+}
+
+/* Main Content Styling */
+main {
+    padding: 20px;
+}
+

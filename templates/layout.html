@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}App{% endblock %}
+    </title>
+    
+   {% load static %}
+    <link rel="stylesheet" href="{% static 'layout.css' %}">
+</head>
+<body>
+    <!-- Header Section -->
+    <div class="header">
+        <h1 class="main-title">
+            To Do List
+            <h3 class="sub-title">A small project by Giorgos Chiras</h3>
+        </h1>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-links">
+            <a title="To Do List" href="/todolist">📋</a>
+            <a title="Add Task" href="/edit">📝</a>
+            <a title="Completed" href="/completed">✅</a>
+            <a title="Incomplete" href="/incomplete">❌</a>
+            <a title="About Me" href="/about">👨‍💻</a>
+            <a title="Logout" href="/logout" onclick="return confirm('Are you sure you want to logout?')">↪</a>
+        </div>
+{#        <small title="Name">#}
+{#            {% if user.is_authenticated %}#}
+{#                <b><u>Logged in as:</u></b> {{ user }}<br>#}
+{#            {% else %}#}
+{#                <b><u>Logged in as:</u></b> None<br>#}
+{#            {% endif %}#}
+{#        </small>#}
+    </nav>
+
+    <!-- Main Content Section -->
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>
+
