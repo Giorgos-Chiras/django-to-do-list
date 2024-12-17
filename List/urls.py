@@ -9,7 +9,7 @@ urlpatterns = [
 
     path('admin/', admin.site.urls),
 
-    path('about/', about_view.as_view(), name="about"),
+    path('about/', about_view, name="about"),
 
     path('completed/',completed_view.as_view(), name="completed"),
 

@@ -3,7 +3,9 @@ from . import views
 
 urlpatterns = [
     path("", views.all_to_do.as_view(), name="index"),
-    path('about/', views.about_view.as_view(), name="about"),
+
+    path('about/', views.about_view, name="about"),
+
     path('completed/', views.completed_view.as_view(), name="completed"),
 
     path('incomplete/', views.incomplete_view.as_view(), name="incomplete"),

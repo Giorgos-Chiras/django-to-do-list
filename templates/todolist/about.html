@@ -28,4 +28,11 @@
     application that will make a positive impact on millions
     of people's daily lives.
 </p>
+    
+    <form action="" method="POST">
+    {% csrf_token %}
+        {{ form.as_p }}
+    <input type="submit" value="Submit"
+    </form>
+    
 {% endblock %}

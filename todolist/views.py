@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-from .forms import TaskForm, RegisterForm, EditTaskForm
+from .forms import TaskForm, RegisterForm, EditTaskForm, ContactForm
 from .models import AddItem
 from django.views.generic import ListView
 from django.views.generic import TemplateView
@@ -102,6 +102,19 @@ def change_confirmation_view(request,part_id=None):
     render(request,'todolist/index.html')
     return redirect(request.META.get('HTTP_REFERER', 'redirect_if_referer_not_found'))
 
+@login_required(login_url='login')
+def about_view(request):
+    if request.method == "POST":
+        form=ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    else:
+        form = ContactForm()
+
+    return render(request,'todolist/about.html',{"form" : form})
+
+
 
 class all_to_do(LoginRequiredMixin, ListView):
     login_url = 'login'
@@ -111,10 +124,6 @@ class all_to_do(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         return AddItem.objects.filter(user=self.request.user).order_by('due_date')
-
-class about_view(LoginRequiredMixin, TemplateView):
-    login_url = 'login'
-    template_name = "todolist/about.html"
 
 
 class completed_view(LoginRequiredMixin, ListView):
