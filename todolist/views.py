@@ -1,7 +1,8 @@
+
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-
+from django.core.mail import send_mail
 
 from .forms import TaskForm, RegisterForm, EditTaskForm, ContactForm
 from .models import AddItem
@@ -107,8 +108,16 @@ def about_view(request):
     if request.method == "POST":
         form=ContactForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('index')
+
+           send_mail(
+               "Subject",
+               form.cleaned_data['message'],
+               form.cleaned_data['email'],
+               ["chiras.to.do.list@gmail.com"],
+               fail_silently=False,
+           )
+           print("Success")
+           return redirect("index")
     else:
         form = ContactForm()
 
