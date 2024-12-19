@@ -12,7 +12,6 @@ from django.views.generic import TemplateView
 from django.shortcuts import render, redirect
 
 
-# Create your views here.
 
 def register_form(request):
     if request.method == 'POST':
