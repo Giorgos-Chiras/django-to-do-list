@@ -21,13 +21,18 @@ import ssl
 # Set the environment variable to use the certifi CA bundle for SSL verification
 os.environ['REQUESTS_CA_BUNDLE'] = certifi.where()
 
-# Email settings for sending emails through Gmail
+ssl_context = ssl.create_default_context(cafile=certifi.where())
+
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 465  # SSL port for Gmail SMTP
-EMAIL_USE_SSL = True  # Use SSL for secure connection
-EMAIL_HOST_USER = 'chiras.to.do.list@gmail.com'  # Your Gmail address
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')  # App Password from Google
+EMAIL_PORT = 587
+EMAIL_USE_TSL = True
+EMAIL_HOST_USER = 'chiras.to.do.list@gmail.com'
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+
+EMAIL_USE_LOCALTIME = True
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -154,9 +159,4 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 465
-EMAIL_USE_SSL = True
-EMAIL_HOST_USER = 'chiras.to.do.list@gmail.com'
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+

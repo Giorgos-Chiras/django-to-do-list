@@ -49,7 +49,6 @@ class RegisterForm(UserCreationForm):
 
 class ContactForm(forms.Form):
         name = forms.CharField(max_length=100, required=True)
-        email = forms.EmailField(widget=forms.EmailInput(attrs={'placeholder': 'Email'}))
         message = forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'Enter your message'}))
 
 
