@@ -10,7 +10,7 @@
 }
 
 .due-date {
-    color: #037118;
+    color: #ffffff;
     font-family: 'Cambria Math', serif;
     margin-left: 100px;
 }
@@ -19,6 +19,10 @@
     width: 50px;
     margin-left: 35px;
 
+}
+
+body{
+    background-color: #ffffff;
 }
 
 .empty-cell {

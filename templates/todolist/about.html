@@ -4,10 +4,11 @@
     About The Developer
 {% endblock %}
 
+
 {% block content %}    
     {% load static %}
-
-    <link rel="stylesheet" href="{% static 'about.css' %}">
+        <link rel="stylesheet" href="{% static 'about.css' %}">
+<div class="split left">
 <h1 class="centered-title"><u>About The Developer</u></h1>
 <p class="centered-text">
     I'm Giorgos Chiras, a 20-year-old Computer Engineering student from 
@@ -17,7 +18,7 @@
     My passion for programming continues to grow, and I 
     am always excited to learn more and improve my skills.
 </p>
-<h3 class="centered-subtitle"><u>The road ahead for me</u></h3>
+<h3 class="left-subtitle"><u>The road ahead for me</u></h3>
 <p class="centered-text">
     The road ahead for me is clear. In the short term, I plan to 
     complete my Bachelor's degree in Computer Engineering 
@@ -28,11 +29,26 @@
     application that will make a positive impact on millions
     of people's daily lives.
 </p>
+</div>
     
-    <form action="" method="POST">
+    <div class="split right">
+    <h2 class="centered-subtitle"> Contact form</h2>
+    <form class="form-with-validation" method="POST">
     {% csrf_token %}
-        {{ form.as_p }}
-    <input type="submit" value="Submit">
-    </form>
-    
+        <table>
+        <div class="form-name">
+            <label for="name">Name:</label>
+             <br>
+            {{ form.name }}
+        </div>
+            
+            <div class="message">
+                <label for="message">Message:</label>
+                <br>
+                {{ form.message }}
+            </div>
+            </table>
+    <button type="submit">Submit</button>
+    </div>
+
 {% endblock %}

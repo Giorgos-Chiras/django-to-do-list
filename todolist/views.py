@@ -103,53 +103,49 @@ def change_confirmation_view(request,part_id=None):
     render(request,'todolist/index.html')
     return redirect(request.META.get('HTTP_REFERER', 'redirect_if_referer_not_found'))
 
+
+def send_email(message, subject, to_email=None):
+    from_email = "chiras.to.do.list@gmail.com"
+    email_password = os.getenv('EMAIL_HOST_PASSWORD')
+
+    # Create the SMTP connection
+    with smtplib.SMTP("smtp.gmail.com", 587) as server:
+        server.starttls()  # Encrypt connection
+        server.login(from_email, email_password)
+
+        if to_email is None:
+            server.sendmail(from_email, from_email, message.as_string())
+
+        else:
+            server.sendmail(to_email, from_email, message.as_string(), to_email)
+
+
 @login_required(login_url='login')
 def about_view(request):
     form = ContactForm(request.POST)
 
     if request.method == "POST":
-        if request.user.is_authenticated:
-            # Get authenticated user's email and username
-            email_name = request.user.email
-            name = request.user.username
-        else:
-            # Handle case when the user is not authenticated
-            email_name = "Anonymous"
-            name = "Guest"
 
+        user_email=request.user.email
         if form.is_valid():
-            print("Valid form")
 
             # Get cleaned data from the form
+            name = form.cleaned_data['name']
             message = form.cleaned_data['message']
-            print("Form data retrieved")
 
-            email_user = "chiras.to.do.list@gmail.com"
-            email_password = os.getenv('EMAIL_HOST_PASSWORD')  # Ensure the App Password is set
+            msg = MIMEText(message)
+            msg["Subject"] = f"New contact from {name} ({user_email})"
 
+            send_email(msg,msg['Subject'])
 
-                # Create the SMTP connection
-            with smtplib.SMTP("smtp.gmail.com", 587) as server:
-                server.starttls()  # Encrypt connection
-                server.login(email_user, email_password)
-
-                # Create email message
-                msg = MIMEText(message)
-                msg["Subject"] = f"New contact from {name} ({email_name})"
-                msg["From"] = email_user
-                msg["To"] = email_user  # Send to your email address
-
-                redirect("index")
-
-                server.sendmail(email_user, email_user, msg.as_string())
-
-                # Redirect or render a success page
-                return redirect("index")
+            return redirect('index')
 
 
-
-    # Render the contact form page
     return render(request, 'todolist/about.html', {"form": form})
+
+
+
+
 
 
 class all_to_do(LoginRequiredMixin, ListView):
