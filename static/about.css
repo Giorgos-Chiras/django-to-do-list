@@ -1,18 +1,25 @@
 .centered-title {
+        font-family: 'Cambria Math', serif;
 
 }
 
 .centered-text {
     width: 50%;
+    font-family: 'Cambria Math', serif;
+
 }
 
 .centered-subtitle {
     text-align: center;
+    font-family: 'Cambria Math', serif;
+
 }
 
 .left-subtitle {
     width: 50%;
     text-align: left;
+    font-family: 'Cambria Math', serif;
+
 }
 
 
@@ -24,10 +31,13 @@
 
 .form-name{
     text-align: center;
+    font-weight: bold;
 }
 .name{
     text-align: center;
     font-weight: bold;
+    font-family: 'Cambria Math', serif;
+
 
 }
 
@@ -37,7 +47,19 @@
 
 .message {
     text-align: center;
+    font-weight: bold;
+    font-family: 'Cambria Math', serif;
+
 }
+
+.subject {
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Cambria Math', serif;
+
+}
+
+
 .split{
     height: 100%;
     width: 50%;

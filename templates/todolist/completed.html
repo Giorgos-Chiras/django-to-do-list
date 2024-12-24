@@ -8,9 +8,20 @@
 
     <link rel="stylesheet" href="{% static 'index.css' %}">
 <h1 class="underlined-title">Completed Tasks</h1>
-<table>
-    {% for item in object_list %}
-        {% if item.completed %}
+  
+        <table>
+        <thead>
+        <tr>
+            {% if object_list %}
+            <th colspan="4" class="table-titles">Tasks</th>
+                {% else %}
+                <th colspan="4" class="table-titles" style="color: red">No completed tasks</th>
+
+            {% endif %}
+        </tr>
+    </thead>
+
+        {% for item in object_list %}
         <tr>
             <td>
                 <form method="POST" action="{% url 'status' part_id=item.id %}">
@@ -22,15 +33,16 @@
                         {% if item.completed %} checked {% endif %}>
                 </form>
             </td>
-            <td>{{ item.text }}</td>
-            <td class="due-date">{{ item.due_date }}</td>
+             
+
+            <td class="complete-text">{{ item.text }}&emsp;</td>
+            <td class=complete-due-date style="text-decoration: line-through">{{ item.due_date }}</td>
             {% if item.picture %}
                 <td><img src="{{ item.picture.url }}" class="task-image" alt="{{ item.text }}"></td>
             {% else %}
                 <td class="empty-cell"></td>
             {% endif %}
         </tr>
-        {% endif %}
     {% endfor %}
 </table>
 {% endblock %}

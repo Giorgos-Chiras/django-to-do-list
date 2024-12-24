@@ -5,7 +5,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 import smtplib
 import os
 from email.mime.text import MIMEText
-from .forms import TaskForm, RegisterForm, EditTaskForm, ContactForm
+from .forms import TaskForm, RegisterForm, EditTaskForm, ContactForm, subject_choices
 from .models import AddItem
 from django.views.generic import ListView
 from django.views.generic import TemplateView
@@ -117,7 +117,7 @@ def send_email(message, subject, to_email=None):
             server.sendmail(from_email, from_email, message.as_string())
 
         else:
-            server.sendmail(to_email, from_email, message.as_string(), to_email)
+            server.sendmail(from_email, to_email, message.as_string())
 
 
 @login_required(login_url='login')
@@ -130,11 +130,17 @@ def about_view(request):
         if form.is_valid():
 
             # Get cleaned data from the form
-            name = form.cleaned_data['name']
+            user_name = form.cleaned_data['name']
             message = form.cleaned_data['message']
+            subject = form.cleaned_data['subject']
+
+            for id,name in subject_choices:
+                if id ==subject:
+                    subject=name
+                    break
 
             msg = MIMEText(message)
-            msg["Subject"] = f"New contact from {name} ({user_email})"
+            msg["Subject"] = f"New contact from {user_name} ({user_email}) Subject: {subject}"
 
             send_email(msg,msg['Subject'])
 
@@ -142,10 +148,6 @@ def about_view(request):
 
 
     return render(request, 'todolist/about.html', {"form": form})
-
-
-
-
 
 
 class all_to_do(LoginRequiredMixin, ListView):
@@ -163,7 +165,7 @@ class completed_view(LoginRequiredMixin, ListView):
     template_name = "todolist/completed.html"
 
     def get_queryset(self):
-        return AddItem.objects.filter(user=self.request.user)
+        return AddItem.objects.filter(user=self.request.user,completed=True)
 
 
 class incomplete_view(LoginRequiredMixin, ListView):
@@ -172,7 +174,7 @@ class incomplete_view(LoginRequiredMixin, ListView):
     template_name = "todolist/incomplete.html"
 
     def get_queryset(self):
-        return AddItem.objects.filter(user=self.request.user)
+        return AddItem.objects.filter(user=self.request.user,completed=False)
 
 
 class home_view( TemplateView):

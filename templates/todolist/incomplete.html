@@ -10,8 +10,17 @@
 
 <h1 class="underlined-title">Incomplete Tasks</h1>
 <table>
+   <thead>
+        <tr>
+            {% if object_list %}
+            <th colspan="4" class="table-titles">Tasks</th>
+                {% else %}
+                <th colspan="4" class="table-titles" style="color: red">No incomplete tasks</th>
+
+            {% endif %}
+        </tr>
+    </thead>
     {% for item in object_list %}
-        {% if not item.completed %}
         <tr>
             <td>
                 <form method="POST" action="{% url 'status' part_id=item.id %}">
@@ -23,7 +32,7 @@
                         {% if item.completed %} checked {% endif %}>
                 </form>
             </td>
-            <td>{{ item.text }}</td>
+            <td>{{ item.text }}&emsp;</td>
             <td class="due-date">{{ item.due_date }}</td>
             {% if item.picture %}
                 <td><img src="{{ item.picture.url }}" class="task-image" alt="{{ item.text }}"></td>
@@ -31,7 +40,6 @@
                 <td class="empty-cell"></td>
             {% endif %}
         </tr>
-        {% endif %}
     {% endfor %}
 </table>
 {% endblock %}

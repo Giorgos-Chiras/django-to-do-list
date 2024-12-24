@@ -9,27 +9,30 @@
     {% load static %}
         <link rel="stylesheet" href="{% static 'about.css' %}">
 <div class="split left">
-<h1 class="centered-title"><u>About The Developer</u></h1>
-<p class="centered-text">
-    I'm Giorgos Chiras, a 20-year-old Computer Engineering student from 
-    Cyprus with a passion for becoming a skilled programmer. 
-    My fascination with computers and video games started 
-    young and has led me to pursue programming as a career.
-    My passion for programming continues to grow, and I 
-    am always excited to learn more and improve my skills.
-</p>
-<h3 class="left-subtitle"><u>The road ahead for me</u></h3>
-<p class="centered-text">
-    The road ahead for me is clear. In the short term, I plan to 
-    complete my Bachelor's degree in Computer Engineering 
-    and aim to secure an internship to gain practical 
-    experience. After that, I hope to start my career as 
-    a software engineer and pursue a Master’s degree in 
-    Software Engineering. I dream of creating a revolutionary 
-    application that will make a positive impact on millions
-    of people's daily lives.
-</p>
+    <h1 class="centered-title"><u>About the Developer</u></h1>
+    <p class="centered-text">
+        Hi, I'm Giorgos Chiras! Here's a little about me:
+    </p>
+    <ul class="centered-text">
+        <li>20-year-old Computer Engineering student from Cyprus.</li>
+        <li>Passionate about programming and technology.</li>
+        <li>Fascinated by computers and video games since childhood.</li>
+        <li>Always eager to learn and improve my coding skills.</li>
+    </ul>
+    
+    <h3 class="left-subtitle"><u>The Road Ahead</u></h3>
+    <p class="centered-text">
+        My goals for the future:
+    </p>
+    <ul class="centered-text">
+        <li>Complete my Bachelor's degree in Computer Engineering.</li>
+        <li>Secure an internship to gain hands-on experience.</li>
+        <li>Start my career as a software engineer.</li>
+        <li>Pursue a Master’s degree in Software Engineering.</li>
+        <li>Develop a revolutionary app to improve people’s daily lives.</li>
+    </ul>
 </div>
+
     
     <div class="split right">
     <h2 class="centered-subtitle"> Contact form</h2>
@@ -42,11 +45,18 @@
             {{ form.name }}
         </div>
             
+              <div class="subject">
+                <label for="subject">Subject:</label>
+                <br>
+                {{ form.subject }}
+            </div>
+            
             <div class="message">
                 <label for="message">Message:</label>
                 <br>
                 {{ form.message }}
             </div>
+          
             </table>
     <button type="submit">Submit</button>
     </div>

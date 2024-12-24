@@ -1,3 +1,11 @@
+/*
+
+body{
+     background: url("/media/backgrounds/bg-3.jpg") no-repeat center center fixed;
+    background-size: cover;
+     }
+*/
+
 .underlined-title {
     text-align: center;
     background-size:auto 2px;
@@ -9,10 +17,25 @@
     text-align: center;
 }
 
-.due-date {
-    color: #ffffff;
+.complete-text{
+    color: red;
+    text-decoration: line-through;
+
+}
+
+.complete-due-date {
+    color: red;
+    text-decoration: line-through;
     font-family: 'Cambria Math', serif;
-    margin-left: 100px;
+    margin-left: 150px;
+
+
+}
+.due-date {
+    color: #037118;
+    font-family: 'Cambria Math', serif;
+    margin-left: 150px;
+
 }
 
 .task-image {
@@ -42,14 +65,31 @@ body{
     background-color: red;
 }
 
-table {
-    display: flex;
+.table-titles {
+    text-align: center;
+    padding: 12px;
 
-    justify-content: center;
-    align-items: center;
+    font-weight: bold;
+    margin: 0 auto;
+
+}
+th, td {
+    text-align: center;
+    padding: 12px;
+}
+
+th.table-titles{
+ text-align: center;
+    font-weight: bold;
+    background-color: #f4f4f4;
+    padding: 12px;
+    border: 3px solid #00020b;
+}
+
+table {
 
     margin: 0 auto;
-    height:50%
+    border-collapse: collapse;
 
 }
 
@@ -58,5 +98,7 @@ tbody {
     border-collapse: collapse;
     border-radius:10px
 }
+
+
 
 

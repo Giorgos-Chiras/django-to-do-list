@@ -5,18 +5,27 @@
 
 {% block content %}
         {% load static %}
-
     <link rel="stylesheet" href="{% static 'index.css' %}">
     <h1 class="underlined-title">All Tasks</h1>
 
-    {% if not object_list %}
-        <h4 class="no-items">You haven't added any tasks yet. Try adding some!</h4>
-    {% endif %}
+  
     
     
-    <table>
-        {% if not object_list %}
-        {% else %}
+   <table>
+    <thead>
+        <tr>
+            {% if object_list %}
+            <th colspan="4" class="table-titles">Tasks</th>
+                <th class="table-titles">&emsp;&emsp; Edit &emsp;&emsp; Delete</th>
+
+                {% else %}
+                        <th colspan="4" class="table-titles" style="color: red">No tasks added </th>
+
+            {% endif %}
+        </tr>
+    </thead>
+    <tbody>
+        {% if object_list %}
             {% for item in object_list %}
                 <tr>
                     <td>
@@ -29,25 +38,29 @@
                                 {% if item.completed %} checked {% endif %}>
                         </form>
                     </td>
-                    <td>{{ item.text }}</td>
-                    <td class="due-date">{{ item.due_date }}</td>
+                    {% if item.completed %}
+                        <td class="complete-text">{{ item.text }}</td>
+                        <td class="complete-due-date">{{ item.due_date }}</td>
+                    {% else %}
+                        <td>{{ item.text }}</td>
+                        <td class="due-date">{{ item.due_date }}</td>
+                    {% endif %}
                     {% if item.picture %}
-                        <td><img class=task-image src="{{ item.picture.url }}"  alt="{{ item.text }}"></td>
+                        <td><img class="task-image" src="{{ item.picture.url }}" alt="{{ item.text }}"></td>
                     {% else %}
                         <td class="empty-cell"></td>
                     {% endif %}
-
                     <td>
-                      
-                        <a  href="{% url 'delete' part_id=item.id %}"
+                        <a href="{% url 'edit_task' part_id=item.id %}" class="delete-link">✏️</a>
+                        <a href="{% url 'delete' part_id=item.id %}"
                            onclick="return confirm('Are you sure you want to delete this item?')"
                            class="delete-link">🗑️</a>
-                        
-                          <a  href="{% url 'edit_task' part_id=item.id %}"
-                           class="delete-link">✏️</a>
                     </td>
                 </tr>
             {% endfor %}
-        </table>
+      
         {% endif %}
+    </tbody>
+</table>
+
 {% endblock %}

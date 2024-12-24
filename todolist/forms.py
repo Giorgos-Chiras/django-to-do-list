@@ -1,4 +1,6 @@
 # forms.py
+from random import choices
+
 from django import  forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
@@ -47,9 +49,21 @@ class RegisterForm(UserCreationForm):
                 return user
 
 
+subject_choices = (
+    ('1', "Account Issues"),
+    ('2', "Task Management"),
+    ('3', "Feature Requests"),
+    ('4', "Bug Reports"),
+    ('5', "General Inquiry"),
+    ('6', "Feedback"),
+    ("7", "Other"))
+
 class ContactForm(forms.Form):
         name = forms.CharField(max_length=100, required=True)
+        subject= forms. ChoiceField(choices=subject_choices)
         message = forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'Enter your message'}))
+
+
 
 
 
