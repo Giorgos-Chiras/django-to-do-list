@@ -5,60 +5,60 @@
 {% endblock %}
 
 
-{% block content %}    
+{% block content %}
     {% load static %}
-        <link rel="stylesheet" href="{% static 'about.css' %}">
-<div class="split left">
-    <h1 class="centered-title"><u>About the Developer</u></h1>
-    <p class="centered-text">
-        Hi, I'm Giorgos Chiras! Here's a little about me:
-    </p>
-    <ul class="centered-text">
-        <li>20-year-old Computer Engineering student from Cyprus.</li>
-        <li>Passionate about programming and technology.</li>
-        <li>Fascinated by computers and video games since childhood.</li>
-        <li>Always eager to learn and improve my coding skills.</li>
-    </ul>
-    
-    <h3 class="left-subtitle"><u>The Road Ahead</u></h3>
-    <p class="centered-text">
-        My goals for the future:
-    </p>
-    <ul class="centered-text">
-        <li>Complete my Bachelor's degree in Computer Engineering.</li>
-        <li>Secure an internship to gain hands-on experience.</li>
-        <li>Start my career as a software engineer.</li>
-        <li>Pursue a Master’s degree in Software Engineering.</li>
-        <li>Develop a revolutionary app to improve people’s daily lives.</li>
-    </ul>
-</div>
+    <link rel="stylesheet" href="{% static 'about.css' %}">
+    <div class="split left">
+        <h1 class="centered-title"><u>About the Developer</u></h1>
+        <p class="centered-text">
+            Hi, I'm Giorgos Chiras! Here's a little about me:
+        </p>
+        <ul class="centered-text">
+            <li>20-year-old Computer Engineering student from Cyprus.</li>
+            <li>Passionate about programming and technology.</li>
+            <li>Fascinated by computers and video games since childhood.</li>
+            <li>Always eager to learn and improve my coding skills.</li>
+        </ul>
 
-    
+        <h3 class="left-subtitle"><u>The Road Ahead</u></h3>
+        <p class="centered-text">
+            My goals for the future:
+        </p>
+        <ul class="centered-text">
+            <li>Complete my Bachelor's degree in Computer Engineering.</li>
+            <li>Secure an internship to gain hands-on experience.</li>
+            <li>Start my career as a software engineer.</li>
+            <li>Pursue a Master’s degree in Software Engineering.</li>
+            <li>Develop a revolutionary app to improve people’s daily lives.</li>
+        </ul>
+    </div>
+
+
     <div class="split right">
-    <h2 class="centered-subtitle"> Contact form</h2>
-    <form class="form-with-validation" method="POST">
-    {% csrf_token %}
-        <table>
-        <div class="form-name">
-            <label for="name">Name:</label>
-             <br>
-            {{ form.name }}
-        </div>
-            
-              <div class="subject">
-                <label for="subject">Subject:</label>
-                <br>
-                {{ form.subject }}
-            </div>
-            
-            <div class="message">
-                <label for="message">Message:</label>
-                <br>
-                {{ form.message }}
-            </div>
-          
+        <h2 class="centered-subtitle"> Contact form</h2>
+        <form class="form-with-validation" method="POST">
+            {% csrf_token %}
+            <table>
+                <div class="form-name">
+                    <label for="name">Name:</label>
+                    <br>
+                    {{ form.name }}
+                </div>
+
+                <div class="subject">
+                    <label for="subject">Subject:</label>
+                    <br>
+                    {{ form.subject }}
+                </div>
+
+                <div class="message">
+                    <label for="message">Message:</label>
+                    <br>
+                    {{ form.message }}
+                </div>
+
             </table>
-    <button type="submit">Submit</button>
+            <button type="submit">Submit</button>
     </div>
 
 {% endblock %}

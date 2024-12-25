@@ -26,4 +26,6 @@ urlpatterns = [
 
     path('edit_task/<part_id>',views.edit_task, name="edit_task"),
 
+    path('confirm_email/', views.confirm_email_view, name="confirm_email"),
+
 ]

@@ -31,6 +31,7 @@ urlpatterns = [
 
     path('edit_task/<part_id>', edit_task, name="edit_task"),
 
-]
+    path('confirm_email/', confirm_email_view, name="confirm_email"),
+    ]
 
 urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
