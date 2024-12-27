@@ -4,21 +4,42 @@
 {% endblock %}
 
 {% block content %}
-        {% load static %}
+    {% load static %}
     <link rel="stylesheet" href="{% static 'settings.css' %}">
-    
-    
-    <div class="user-settings">
-    Username: {{user.username}}
-        <br>
-    Email: {{user.email}}
+
+    <div class="center-wrapper">
+        <div class="container">
+            <div class="label">Username:</div>
+            <div class="info">{{ user.username }}</div>
+
+            <br><br>
+            <div class="label">Email:</div>
+            <div class="info">{{ user.email }}</div>
+        </div>
+        <br><br>
+        <div class="container">
+            <form method="get" action="{% url 'edit_password' %}">
+                <button class="link" type="submit">Edit Password</button>
+            </form>
+            <br><br>
+
+            <form method="get" action="{% url 'change_email' %}">
+                <button class="link" type="submit">Change Email</button>
+            </form>
+            <br><br>
+
+            <form method="post" action="/logout" onsubmit="return confirm('Are you sure you want to logout?')">
+                {% csrf_token %}
+                <button class="link" type="submit">Logout</button>
+            </form>
+        </div>
+
+        {% for message in messages %}
+            {% if message.tags == 'error' %}
+                <p class="error">{{ message }}</p>
+            {% elif message.tags == 'success' %}
+                <p class="success">{{ message }}</p>
+            {% endif %}
+        {% endfor %}
     </div>
-    <a href="{% url 'edit_password' %}">Change Password</a>
-    <br>
-    <a href="{%  url 'change_email' %}">Change Email</a>
-    <br>
-    <a title="Logout" href="/logout" onclick="return confirm('Are you sure you want to logout?')">↪</a>
-    
-
-
 {% endblock %}

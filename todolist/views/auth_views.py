@@ -1,5 +1,6 @@
 import random
 from email.mime.text import MIMEText
+from urllib import request
 
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
@@ -10,7 +11,7 @@ from django.core.exceptions import ValidationError
 from django.shortcuts import render, redirect
 from django.contrib import messages
 
-from ..forms import RegisterForm, ConfirmEmailForm, EditPasswordForm, ChangeEmailForm
+from ..forms import RegisterForm, ConfirmEmailForm, EditPasswordForm, ChangeEmailForm, EmailForm, ChooseNewPasswordForm
 from .email_views import send_email
 
 
@@ -117,6 +118,10 @@ def logout_view(request):
 
 @login_required(login_url='login')
 def change_user_password(request):
+
+    if not request.META.get('HTTP_REFERER'):
+        return redirect('index')
+
     form = EditPasswordForm(request.POST)
 
     if request.method == "POST":
@@ -137,7 +142,7 @@ def change_user_password(request):
                         user.save()
                         login(request, user)
 
-                        return redirect('edit_password')
+                        return redirect('settings')
 
                     except ValidationError as e:
                         for error in e.messages:
@@ -154,6 +159,9 @@ def change_user_password(request):
 
 @login_required(login_url='login')
 def change_email(request):
+
+    if not request.META.get('HTTP_REFERER'):
+        return redirect('index')
     form=ChangeEmailForm(request.POST)
 
     if request.method=="POST":
@@ -175,7 +183,7 @@ def change_email(request):
             msg = MIMEText(message)
             msg["Subject"] = "To Do List: Your One-Time Password"
 
-            send_email(msg, msg["Subject"], old_email)
+            send_email(msg, msg["Subject"], new_email)
 
             return redirect('change_email_confirmation')
 
@@ -186,6 +194,9 @@ def change_email(request):
 
 
 def change_email_confirmation(request):
+    if not request.META.get('HTTP_REFERER'):
+        return redirect('index')
+
     if request.method == "POST":
         form=ConfirmEmailForm(request.POST)
         user=request.user
@@ -198,7 +209,7 @@ def change_email_confirmation(request):
 
             if not cached_email or not cached_authentication_code:
                 messages.error(request, "Session expired.")
-                return redirect('change_email_confirmation')
+                return redirect('settings')
 
             if str(user_entered_token) == str(cached_authentication_code):
                 user.email=cached_email
@@ -208,7 +219,7 @@ def change_email_confirmation(request):
                 cache.delete(f"current_authentication_code")
 
                 messages.success(request, "Email has been changed successfully!")
-                return redirect("change_email_confirmation")
+                return redirect("settings")
             else:
                 messages.error(request, "Invalid code. Please try again.")
                 return redirect("change_email_confirmation")
@@ -218,6 +229,116 @@ def change_email_confirmation(request):
 
 
     return render(request,"change_email_confirmation.html",{"form":form})
+
+def choose_email(request):
+    user = request.user
+
+    if user.is_authenticated:
+        return redirect("index")
+
+    if not request.META.get('HTTP_REFERER'):
+        return redirect('index')
+
+    if request.method == "POST":
+        form=EmailForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            email_list = list(User.objects.values_list("email", flat=True))
+
+            if email not in email_list:
+                messages.error(request, "Email is not associated with any accounts.")
+                return redirect("choose_email")
+
+            user_email = form.cleaned_data['email']
+
+            user_authentication_code = random.randint(100000, 999999)
+
+            cache.set("cached_code", user_authentication_code, timeout=300)
+            cache.set("user_email", user_email, timeout=600)
+
+            message = f"Your one-time password is: {user_authentication_code}"
+            msg = MIMEText(message)
+            msg["Subject"] = "To Do List: Your One-Time Password"
+            cache.set("cached_authentication_code", user_authentication_code, timeout=300)
+
+            send_email(msg, msg["Subject"], user_email)
+            return redirect("forgot_password_confirmation")
+
+    else:
+        form=EmailForm()
+
+    return render(request, "todolist/choose_email.html", {"form":form})
+
+
+def forgot_password_confirmation(request):
+    user = request.user
+
+    if user.is_authenticated:
+        return redirect("index")
+
+    if not request.META.get('HTTP_REFERER'):
+        return redirect('index')
+
+    if request.method == "POST":
+        form = ConfirmEmailForm(request.POST)
+        cached_code=cache.get("cached_code")
+
+        if form.is_valid():
+            entered_code = form.cleaned_data['token']
+            if not cached_code:
+                messages.error(request, "Session has expired")
+                return redirect("login")
+
+            if str(cached_code) == str(entered_code):
+                cache.delete(f"cached_code")
+                return redirect("forgot_password")
+
+    else:
+        form=ConfirmEmailForm()
+
+    return render(request,"todolist/forgot_password_confirmation.html",{"form":form})
+
+def forgot_password(request):
+
+    if not request.META.get('HTTP_REFERER'):
+        return redirect('index')
+
+    if request.method == "POST":
+        form = ChooseNewPasswordForm(request.POST)
+        if form.is_valid():
+            user_email=cache.get("user_email")
+            user=User.objects.get(email=user_email)
+            new_password=form.cleaned_data['new_password']
+            confirm_password=form.cleaned_data['confirm_password']
+
+            try:
+                validate_password(new_password)
+
+                if str(new_password) == str(confirm_password):
+                    cache.delete(f"user_email")
+                    user.set_password(new_password)
+                    messages.success(request, "Password changed successfully!")
+                    user.save()
+                    login(request, user)
+                    return redirect("settings")
+
+                else:
+                    messages.error(request, "Password do not match.")
+                    return redirect("forgot_password")
+
+            except ValidationError as e:
+                for error in e.messages:
+                    messages.error(request, error)
+                return redirect("forgot_password")
+
+    else:
+        form = ChooseNewPasswordForm()
+
+    return render(request, "todolist/forgot_password.html", {"form":form})
+
+
+
+
 
 
 

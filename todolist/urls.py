@@ -38,4 +38,10 @@ urlpatterns = [
 
     path('change_email_confirmation/', views.change_email_confirmation, name="change_email_confirmation"),
 
+    path('forgot_password/', views.forgot_password, name="forgot_password"),
+
+    path('forgot_password_confirmation', views.forgot_password_confirmation, name="forgot_password_confirmation"),
+
+    path('choose_email/', views.choose_email, name="choose_email")
+
 ]

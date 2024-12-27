@@ -80,3 +80,9 @@ class ConfirmEmailForm(forms.Form):
 class ChangeEmailForm(forms.Form):
     new_email = forms.EmailField(required=True, widget=forms.EmailInput(attrs={'placeholder': 'New Email'}))
 
+class EmailForm(forms.Form):
+    email=forms.EmailField(required=True, widget=forms.EmailInput(attrs={'placeholder': 'Email'}))
+
+class ChooseNewPasswordForm(forms.Form):
+    new_password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'New Password'}))
+    confirm_password= forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Confirm Password'}))

@@ -34,10 +34,21 @@
         {% if error_message %}
             <p>{{ error_message }}</p>
         {% endif %}
+    
+         {% for message in messages %}
+            {% if message.tags == 'error' %}
+            <p class="error">{{ message }}</p>
+            {% elif message.tags == 'success' %}
+            <p class="success">{{ message }}</p>
+            
+            {% endif %}
+        {% endfor %}
     </form>
 
     <br>
-    <a href="/register">Not a member? Register</a>
+    <a href="{% url 'register' %}">Not a member? Register</a>
+    <a href="{% url 'choose_email' %}">Forgot your password?</a>
+
 </body>
 
 </html>

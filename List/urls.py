@@ -3,7 +3,8 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from todolist.views import change_email, change_email_confirmation
+from todolist.views import change_email, change_email_confirmation, forgot_password, forgot_password_confirmation, \
+    choose_email
 from todolist.views.auth_views import (
     register_form, login_form, logout_view, change_user_password, confirm_email_view
 )
@@ -51,6 +52,13 @@ urlpatterns = [
     path('change_email/',change_email,name="change_email"),
 
     path('change_email_confirmation/',change_email_confirmation, name="change_email_confirmation"),
+
+    path('forgot_password/',forgot_password, name="forgot_password"),
+
+    path('forgot_password_confirmation/',forgot_password_confirmation, name="forgot_password_confirmation"),
+
+    path('choose_email/',choose_email, name="choose_email")
+
     ]
 
 urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

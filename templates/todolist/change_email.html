@@ -5,12 +5,13 @@
 {% endblock %}
 
 {% block content %}
-        {% load static %}
-
-    <link rel="stylesheet" href="{% static 'edit_password.css' %}">
-<form action="{% url 'change_email' %}" method="POST" enctype="multipart/form-data">
-      {% csrf_token %}
-      
-    {{ form.as_p}}
+    {% load static %}
+    <p class="text">Enter the new email</p>
+    <link rel="stylesheet" href="{% static 'form_styling.css' %}">
+    <form action="{% url 'change_email' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+   {{ form.new_email }}
+    <br>
     <button type="submit" value="Submit">Submit</button>
 {% endblock %}
