@@ -23,12 +23,12 @@
 </div>
 
 <!-- Login Form -->
-<form class="form-with-validation" action="/confirm_email/" method="post">
+<form class="form-with-validation" action="/change_email_confirmation/" method="post">
     {% csrf_token %}
     <input type="text" placeholder="OTP" name="token">
     <br>
-    {% for error in form.token.errors %}
-        <p style="color: red">{{ error }}</p>
+    {% for message in messages %}
+        <p style="color: red">{{ message }}</p>
     {% endfor %}
     <button type="submit">Submit</button>
 </form>

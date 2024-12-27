@@ -18,9 +18,7 @@ import certifi
 import ssl
 
 # Set the environment variable to use the certifi CA bundle for SSL verification
-os.environ['REQUESTS_CA_BUNDLE'] = certifi.where()
 
-ssl_context = ssl.create_default_context(cafile=certifi.where())
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
@@ -141,7 +139,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-import os
+
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

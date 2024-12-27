@@ -1,6 +1,8 @@
 from django.urls import path
 from . import views
 
+
+
 urlpatterns = [
     path("", views.all_to_do.as_view(), name="index"),
 
@@ -27,5 +29,13 @@ urlpatterns = [
     path('edit_task/<part_id>',views.edit_task, name="edit_task"),
 
     path('confirm_email/', views.confirm_email_view, name="confirm_email"),
+
+    path('edit_password/', views.change_user_password, name="edit_password"),
+
+    path('settings/', views.settings_view, name="settings"),
+
+    path('change_email/',views.change_email, name="change_email"),
+
+    path('change_email_confirmation/', views.change_email_confirmation, name="change_email_confirmation"),
 
 ]

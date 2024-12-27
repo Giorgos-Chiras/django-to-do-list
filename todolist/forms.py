@@ -4,6 +4,7 @@ from random import choices
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from django.template.context_processors import request
 
 from todolist.models import AddItem
 
@@ -19,6 +20,13 @@ class EditTaskForm(forms.ModelForm):
         model = AddItem
         fields = ['text', 'due_date', 'picture']
         widgets = {'due_date': forms.DateInput(attrs={'type': 'date'}), }
+
+
+class EditPasswordForm(forms.Form):
+    old_password = forms.CharField(required=True, widget=forms.PasswordInput(attrs={'placeholder': 'Old password'}))
+    new_password= forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'New Password'}))
+    confirm_password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Confirm Password'}))
+
 
 
 class RegisterForm(UserCreationForm):
@@ -68,3 +76,7 @@ class ContactForm(forms.Form):
 
 class ConfirmEmailForm(forms.Form):
     token = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Token'}), max_length=6)
+
+class ChangeEmailForm(forms.Form):
+    new_email = forms.EmailField(required=True, widget=forms.EmailInput(attrs={'placeholder': 'New Email'}))
+

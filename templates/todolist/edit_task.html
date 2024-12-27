@@ -6,7 +6,7 @@
 
 {% block content %}
         {% load static %}
-<
+
     <link rel="stylesheet" href="{% static 'edit.css' %}">
 <form action="{% url 'edit_task' part_id=part_id %}" method="POST" enctype="multipart/form-data">
       {% csrf_token %}

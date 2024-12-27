@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Add Task
+{% endblock %}
+
+{% block content %}
+        {% load static %}
+
+    <link rel="stylesheet" href="{% static 'edit_password.css' %}">
+<form action="{% url 'change_email' %}" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      
+    {{ form.as_p}}
+    <button type="submit" value="Submit">Submit</button>
+{% endblock %}

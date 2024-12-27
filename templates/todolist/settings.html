@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+{% block title %}
+    Settings
+{% endblock %}
+
+{% block content %}
+        {% load static %}
+    <link rel="stylesheet" href="{% static 'settings.css' %}">
+    
+    
+    <div class="user-settings">
+    Username: {{user.username}}
+        <br>
+    Email: {{user.email}}
+    </div>
+    <a href="{% url 'edit_password' %}">Change Password</a>
+    <br>
+    <a href="{%  url 'change_email' %}">Change Email</a>
+    <br>
+    <a title="Logout" href="/logout" onclick="return confirm('Are you sure you want to logout?')">↪</a>
+    
+
+
+{% endblock %}
