@@ -10,7 +10,7 @@
     </title>
 
     {% load static %}
-    <link rel="stylesheet" href="{% static 'register.css' %}">
+    <link rel="stylesheet" href="{% static 'login.css' %}">
 </head>
 
 <body>
@@ -21,7 +21,6 @@
     </div>
 
     <!-- Register Form -->
-    <h1><u>Register</u></h1>
 <form class="form-with-validation" method="post">
     {% csrf_token %}
     {{ form.non_field_errors }}

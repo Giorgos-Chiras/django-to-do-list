@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <title>
         {% block title %}
-            Register
+           Choose Email
         {% endblock %}
     </title>
 
     {% load static %}
-    <link rel="stylesheet" href="{% static 'register.css' %}">
+    <link rel="stylesheet" href="{% static 'login.css' %}">
 </head>
 
 <body>
@@ -23,10 +23,14 @@
 
 
 {% load static %}
+<a class="go-back-link" href="{% url 'settings' %}">↩</a>
+
 <link rel="stylesheet" href="{% static 'form_styling.css' %}">
 <form class="form-with-validation" action="{% url 'choose_email' %}" method="post">
+<p class="text">Enter the email address associated with your account</p>
     {% csrf_token %}
         {{ form.email }}
+    <br>
     {% for message in messages %}
         {% if message.tags == 'error' %}
             <p class="error">{{ message }}</p>

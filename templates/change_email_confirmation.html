@@ -21,11 +21,12 @@
     <h1>To Do List</h1>
     <h3>A small project by Giorgos Chiras</h3>
 </div>
+<a class="go-back-link" href="{% url 'settings' %}">↩</a>
 
-<!-- Login Form -->
+<p class="text">A One Time verification code has been send to the new email.</p>
 <form class="form-with-validation" action="/change_email_confirmation/" method="post">
     {% csrf_token %}
-    <input type="text" placeholder="OTP" name="token">
+    <input type="text" placeholder="e.g. 123456" name="token">
     <br>
     {% for message in messages %}
         <p style="color: red">{{ message }}</p>

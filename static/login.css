@@ -11,6 +11,13 @@ body {
     padding: 20px;
 }
 
+.text{
+    text-align: center;
+    font-size: 1.5em;
+    font-family: 'Cambria Math', serif;
+}
+
+
 .header h1 {
     color: #670e67;
     text-align: center;
@@ -29,14 +36,16 @@ body {
 form {
     text-align: center;
     margin-top: 20px;
+    font-size: 1.5rem;
 }
 
 form input {
     padding: 10px;
     margin: 10px;
     border-radius: 5px;
-    width: 200px;
+    width: 300px;
     border: 1px solid #ccc;
+    font-size: 1.5rem;
 }
 
 form button {
@@ -46,6 +55,11 @@ form button {
     border-radius: 5px;
     border: none;
     cursor: pointer;
+    font-family: 'Cambria Math', serif;
+    font-size: 20px;
+    width: 10%;
+    box-shadow: 2px 2px 2px #0b0000;
+    transition: background-color 0.3s ease;
 }
 
 form button:hover {
@@ -54,15 +68,31 @@ form button:hover {
 
 /* Error Message Styling */
 form p {
-    color: red;
+    color: #000000;
 }
 
-/* Register Link Styling */
 a {
     text-decoration: none;
     color: #670e67;
-    font-size: 16px;
+    font-size: 20px;
     display: block;
     text-align: center;
     margin-top: 20px;
+
 }
+
+.go-back-link{
+    text-align: left;
+    font-size: 50px;
+    position: fixed;
+}
+
+.error{
+    color: red;
+    font-weight: bold;
+
+}
+
+
+
+

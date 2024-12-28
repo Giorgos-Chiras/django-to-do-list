@@ -14,15 +14,16 @@
 form {
     text-align: center;
     margin-top: 20px;
+
 }
 
 form input {
     padding: 10px;
     margin: 10px;
     border-radius: 5px;
-    width: 200px;
+    width: 300px;
     border: 1px solid #ccc;
-    font-size: 1em;
+    font-size: 1.5rem;
 }
 
 form button {

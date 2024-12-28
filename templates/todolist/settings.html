@@ -10,10 +10,12 @@
     <div class="center-wrapper">
         <div class="container">
             <div class="label">Username:</div>
+            <br>
             <div class="info">{{ user.username }}</div>
 
             <br><br>
             <div class="label">Email:</div>
+            <br>
             <div class="info">{{ user.email }}</div>
         </div>
         <br><br>
@@ -28,7 +30,7 @@
             </form>
             <br><br>
 
-            <form method="post" action="/logout" onsubmit="return confirm('Are you sure you want to logout?')">
+            <form method="post" action="/logout/" onsubmit="return confirm('Are you sure you want to logout?')">
                 {% csrf_token %}
                 <button class="link" type="submit">Logout</button>
             </form>

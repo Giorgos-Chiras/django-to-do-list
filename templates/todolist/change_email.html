@@ -6,12 +6,21 @@
 
 {% block content %}
     {% load static %}
+        <link rel="stylesheet" href="{% static 'form_styling.css' %}">
+
     <p class="text">Enter the new email</p>
-    <link rel="stylesheet" href="{% static 'form_styling.css' %}">
     <form action="{% url 'change_email' %}" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     
    {{ form.new_email }}
     <br>
+    {% for message in messages %}
+        {% if message.tags == 'error' %}
+            <p class="error">{{ message }}</p>
+        {% elif message.tags == 'success' %}
+            <p class="success">{{ message }}</p>
+
+        {% endif %}
+    {% endfor %}
     <button type="submit" value="Submit">Submit</button>
 {% endblock %}

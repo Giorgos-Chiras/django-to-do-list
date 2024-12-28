@@ -12,7 +12,7 @@ def task_form(request):
             task = AddItem(
                 text=form.cleaned_data['name'],
                 due_date=form.cleaned_data['date'],
-                picture=form.cleaned_data.get('image'),
+                picture=form.cleaned_data['image'],
                 user=request.user
             )
             task.save()
@@ -20,8 +20,7 @@ def task_form(request):
     else:
         form = TaskForm()
 
-    return render(request, "todolist/edit.html", {"form": form})
-
+    return render(request, "todolist/add-task.html", {"form": form})
 
 def edit_task(request, part_id=None):
     if not request.META.get('HTTP_REFERER'):
@@ -53,19 +52,20 @@ def delete_view(request, part_id=None):
 
     _object = AddItem.objects.get(pk=part_id)
     _object.delete()
-    render(request, 'todolist/index.html')
+    render(request, 'todolist/all_tasks.html')
     return redirect('index')
 
 
 def change_confirmation_view(request, part_id=None):
-    if not request.META.get('HTTP_REFERER'):
+    if not request.META.get('HTTP_REFERER') or part_id is None:
         return redirect('index')
 
-    if part_id is None:
-        return redirect("index")
+    # Use get_object_or_404 to handle missing objects gracefully
+    _object = get_object_or_404(AddItem, pk=part_id)
 
-    _object = AddItem.objects.get(pk=part_id)
+    # Toggle the completion status
     _object.completed = not _object.completed
     _object.save()
-    render(request, 'todolist/index.html')
-    return redirect(request.META.get('HTTP_REFERER', 'redirect_if_referer_not_found'))
+
+    # Redirect back to the referer
+    return redirect(request.META.get('HTTP_REFERER'))

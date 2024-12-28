@@ -1,16 +1,16 @@
 {% extends 'layout.html' %}
 
 {% block title %}
-    Add Task
+    Edit Task
 {% endblock %}
 
 {% block content %}
         {% load static %}
 
-    <link rel="stylesheet" href="{% static 'edit.css' %}">
+    <link rel="stylesheet" href="{% static 'add_task.css' %}">
+    <div class="center-wrapper">
 <form action="{% url 'edit_task' part_id=part_id %}" method="POST" enctype="multipart/form-data">
       {% csrf_token %}
-
       <div class="form-group">
             <label for="id_name" class="form-label">Name:</label>
             <div class="form-field">{{ form.text }}</div>
@@ -30,4 +30,5 @@
     
       <a href="../todolist/" class="cancel_button">Cancel</a>
 </form>
+    </div>
 {% endblock %}

@@ -7,7 +7,7 @@ from ..models import AddItem
 class all_to_do(LoginRequiredMixin, ListView):
     login_url = 'login'
     model = AddItem
-    template_name = "todolist/index.html"
+    template_name = "todolist/all_tasks.html"
 
     def get_queryset(self):
         return AddItem.objects.filter(user=self.request.user).order_by('due_date')
@@ -29,7 +29,6 @@ class incomplete_view(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         return AddItem.objects.filter(user=self.request.user, completed=False)
-
 
 class home_view(TemplateView):
     template_name = "todolist/home.html"

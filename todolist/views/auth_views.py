@@ -307,6 +307,9 @@ def forgot_password(request):
         form = ChooseNewPasswordForm(request.POST)
         if form.is_valid():
             user_email=cache.get("user_email")
+            if not user_email:
+                messages.error(request, "Session has expired")
+                return redirect("login")
             user=User.objects.get(email=user_email)
             new_password=form.cleaned_data['new_password']
             confirm_password=form.cleaned_data['confirm_password']

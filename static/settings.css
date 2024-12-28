@@ -1,6 +1,4 @@
-.body {
 
-}
 
 .label {
     display: inline-block;
@@ -21,10 +19,10 @@
 .container {
     display: inline-block;
     text-align: center;
-    background-color: lightgray;
     border: 3px solid black;
     border-radius: 5px;
     padding: 20px;
+    width: 30%;
 }
 
 .center-wrapper {
@@ -45,10 +43,26 @@
     cursor: pointer;
     font-family: 'Cambria Math', serif;
     font-size: 20px;
+    width: 40%;
+    box-shadow: 2px 2px 2px #0b0000;
+    transition: background-color 0.3s ease;
+
 }
 
 .link:hover {
     background-color: #9b4d9b;
+}
+
+.error{
+    color: red;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.success{
+    color: green;
+    font-weight: bold;
+    font-size: 1.5em;
 }
 
 

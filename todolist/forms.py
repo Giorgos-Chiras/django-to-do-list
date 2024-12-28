@@ -4,8 +4,6 @@ from random import choices
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from django.template.context_processors import request
-
 from todolist.models import AddItem
 
 
@@ -75,13 +73,13 @@ class ContactForm(forms.Form):
 
 
 class ConfirmEmailForm(forms.Form):
-    token = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Token'}), max_length=6)
+    token = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'e.g. 123456'}), max_length=6)
 
 class ChangeEmailForm(forms.Form):
-    new_email = forms.EmailField(required=True, widget=forms.EmailInput(attrs={'placeholder': 'New Email'}))
+    new_email = forms.EmailField(required=True, widget=forms.EmailInput(attrs={'placeholder': 'e.g. myemail@address.com'}))
 
 class EmailForm(forms.Form):
-    email=forms.EmailField(required=True, widget=forms.EmailInput(attrs={'placeholder': 'Email'}))
+    email=forms.EmailField(required=True, widget=forms.EmailInput(attrs={'placeholder': 'e.g. myemail@address.com'}))
 
 class ChooseNewPasswordForm(forms.Form):
     new_password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'New Password'}))

@@ -1,10 +1,23 @@
 form {
     margin: 2rem;
     padding: 1rem;
-    border: 1px solid black;
+    border: 3px solid black;
     border-radius: 5px;
-    width: 80%;
+    width: 30%;
 }
+.subtitle{
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+.center-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
 
 .form-group {
     display: flex;
@@ -14,6 +27,8 @@ form {
 .form-label {
     width: 150px;
     font-weight: bold;
+    font-family: 'Cambria Math', serif;
+    font-size: 1.2rem;
 }
 
 .form-field {
@@ -23,9 +38,9 @@ form {
 .submit-button {
     margin-top: 1.5rem;
     padding: 0.5rem 2rem;
-    background-color: #4CAF50;
-    color: #00020b;
-    border: 1px solid black;
+    background-color: #670e67;
+    color: #ffffff;
+    border: 3px solid black;
     border-radius: 5px;
     cursor: pointer;
 
@@ -47,5 +62,5 @@ form {
 }
 
 .submit-button:hover {
-    background-color: #45a049;
+    background-color: #b809f3;
 }
