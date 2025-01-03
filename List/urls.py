@@ -4,7 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from todolist.views import change_email, change_email_confirmation, forgot_password, forgot_password_confirmation, \
-    choose_email
+    choose_email, set_notification
 from todolist.views.auth_views import (
     register_form, login_form, logout_view, change_user_password, confirm_email_view
 )
@@ -33,7 +33,7 @@ urlpatterns = [
 
     path('',home_view.as_view(),name='home'),
 
-    path('edit/',task_form, name="edit"),
+    path('add_task/', task_form, name="add-task"),
 
     path('logout/',logout_view,name="logout"),
 
@@ -57,7 +57,9 @@ urlpatterns = [
 
     path('forgot_password_confirmation/',forgot_password_confirmation, name="forgot_password_confirmation"),
 
-    path('choose_email/',choose_email, name="choose_email")
+    path('choose_email/',choose_email, name="choose_email"),
+
+    path('set_notification/<part_id>', set_notification, name="set_notification"),
 
     ]
 

@@ -8,29 +8,35 @@
 {% block content %}
     {% load static %}
     <link rel="stylesheet" href="{% static 'about.css' %}">
-    <div class="split left">
-        <h1 class="centered-title"><u>About the Developer</u></h1>
-        <p class="centered-text">
-            Hi, I'm Giorgos Chiras! Here's a little about me:
-        </p>
-        <ul class="centered-text">
-            <li>20-year-old Computer Engineering student from Cyprus.</li>
-            <li>Passionate about programming and technology.</li>
-            <li>Fascinated by computers and video games since childhood.</li>
-            <li>Always eager to learn and improve my coding skills.</li>
-        </ul>
+   
+    <div class="about-container">
+        <div class="about-left">
+            <h1 class="centered-title"><u>About the Developer</u></h1>
+            <p class="centered-text">
+                Hi, I'm Giorgos Chiras! Here's a little about me:
+            </p>
+            <ul class="info-list">
+                <li>20-year-old Computer Engineering student from Cyprus.</li>
+                <li>Passionate about programming and technology.</li>
+                <li>Fascinated by computers and video games since childhood.</li>
+                <li>Always eager to learn and improve my coding skills.</li>
+            </ul>
 
-        <h3 class="left-subtitle"><u>The Road Ahead</u></h3>
-        <p class="centered-text">
-            My goals for the future:
-        </p>
-        <ul class="centered-text">
-            <li>Complete my Bachelor's degree in Computer Engineering.</li>
-            <li>Secure an internship to gain hands-on experience.</li>
-            <li>Start my career as a software engineer.</li>
-            <li>Pursue a Master’s degree in Software Engineering.</li>
-            <li>Develop a revolutionary app to improve people’s daily lives.</li>
-        </ul>
+            <h3 class="section-title"><u>The Road Ahead</u></h3>
+            <p class="centered-text">
+                My goals for the future:
+            </p>
+            <ul class="info-list">
+                <li>Complete my Bachelor's degree in Computer Engineering.</li>
+                <li>Secure an internship to gain hands-on experience.</li>
+                <li>Start my career as a software engineer.</li>
+                <li>Pursue a Master’s degree in Software Engineering.</li>
+                <li>Develop a revolutionary app to improve people’s daily lives.</li>
+            </ul>
+        </div>
+        <div class="about-right">
+            <img src="{% static 'developer.jpg' %}" alt="Giorgos Chiras" class="developer-image">
+        </div>
     </div>
 
 

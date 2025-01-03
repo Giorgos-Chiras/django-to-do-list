@@ -7,26 +7,30 @@
 {% block content %}
     {% load static %}
 
-    <link rel="stylesheet" href="{% static 'add_task.css' %}">
+    <link rel="stylesheet" href="{% static 'form_styling.css' %}">
     <h2 class="subtitle">Add new task</h2>
     <div class="center-wrapper">
-    <form action="{% url 'edit' %}" method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <div class="form-group">
-            <label for="id_name" class="form-label">{{ form.name.label }}</label>
-            <div class="form-field">{{ form.name }}</div>
-        </div>
+<form action="{% url 'add-task' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="id_name" class="form-label">{{ form.name.label }}</label>
+        <div class="form-field">{{ form.name }}</div>
+    </div>
 
-        <div class="form-group">
-            <label for="id_date" class="form-label">{{ form.date.label }}</label>
-            <div class="form-field">{{ form.date }}</div>
-        </div>
+    <div class="form-group">
+        <label for="id_date" class="form-label">{{ form.date.label }}</label>
+        <div class="form-field">{{ form.date }}</div>
+    </div>
 
-        <div class="form-group">
-            <label for="id_image" class="form-label">{{ form.image.label }}</label>
-            <div class="form-field">{{ form.image }}</div>
-        </div>
+    <div class="form-group">
+        <label for="id_image" class="form-label">{{ form.image.label }}</label>
+        <div class="image-field">{{ form.image }}</div>
+    </div>
 
+    <!-- Add Submit Button -->
+    <div class="form-group">
+    </div>
+    
         <button type="submit" class="submit-button">Save</button>
     </form>
     </div>

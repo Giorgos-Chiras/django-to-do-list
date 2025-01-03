@@ -18,7 +18,7 @@ urlpatterns = [
 
     path('', views.home_view.as_view(), name="home"),
 
-    path('edit/',views.task_form, name="edit"),
+    path('add_task/',views.task_form, name="edit"),
 
     path('logout/', views.logout, name="logout"),
 
@@ -42,6 +42,9 @@ urlpatterns = [
 
     path('forgot_password_confirmation', views.forgot_password_confirmation, name="forgot_password_confirmation"),
 
-    path('choose_email/', views.choose_email, name="choose_email")
+    path('choose_email/', views.choose_email, name="choose_email"),
+
+    path('set_notification/', views.set_notification, name="set_notification"),
 
 ]
+

@@ -7,9 +7,9 @@
 {% block content %}
         {% load static %}
 
-    <link rel="stylesheet" href="{% static 'add_task.css' %}">
+    <link rel="stylesheet" href="{% static 'form_styling.css' %}">
     <div class="center-wrapper">
-<form action="{% url 'edit_task' part_id=part_id %}" method="POST" enctype="multipart/form-data">
+<form action="{% url 'edit_task' part_id %}" method="POST" enctype="multipart/form-data">
       {% csrf_token %}
       <div class="form-group">
             <label for="id_name" class="form-label">Name:</label>
@@ -17,13 +17,13 @@
       </div>
 
       <div class="form-group">
-            <label for="id_date" class="form-label">{{ form.due_date.label }}</label>
+            <label for="id_date" class="form-label">{{ form.due_date.label  }}</label>
             <div class="form-field">{{ form.due_date }}</div>
       </div>
 
       <div class="form-group">
             <label for="id_image" class="form-label">{{ form.picture.label }}</label>
-            <div class="form-field">{{ form.picture }}</div>
+            <div class="image-field">{{ form.picture }}</div>
       </div>
 
       <button type="submit" class="submit-button">Save</button>

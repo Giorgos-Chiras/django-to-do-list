@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+{% block title %}
+    Set Notification
+{% endblock %}
+
+{% block content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'form_styling.css' %}">
+
+    <form action="{% url 'set_notification' object.id %}" method="POST" enctype="multipart/form-data">
+        <p class="subtitle">{{ object.text }}</p>
+        {% csrf_token %}
+        {{ form.as_p }}
+    <button type="submit">Set Notification</button>
+    </form>
+
+    {% for message in messages %}
+        {% if message.tags == 'error' %}
+            <p class="error">{{ message }}</p>
+        {% elif message.tags == 'success' %}
+            <p class="success">{{ message }}</p>
+        {% endif %}
+    {% endfor %}
+
+{% endblock %}

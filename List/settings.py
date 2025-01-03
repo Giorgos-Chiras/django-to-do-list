@@ -12,13 +12,11 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
-
-import os
-import certifi
 import ssl
+import certifi
 
-# Set the environment variable to use the certifi CA bundle for SSL verification
 
+os.environ['REQUESTS_CA_BUNDLE'] = certifi.where()
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
@@ -34,6 +32,22 @@ CACHES = {
         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
     }
 }
+
+DATE_INPUT_FORMATS = ['%d/%m/%Y']
+
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'EET'
+
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+
+
+
+USE_TZ = True  # This ensures Django uses timezone-aware datetimes
+
+TIME_ZONE = 'EET'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent

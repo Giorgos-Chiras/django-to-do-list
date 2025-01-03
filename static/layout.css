@@ -32,29 +32,27 @@ nav .nav-links {
 
 }
 
+nav .nav-links a {
+    text-decoration: none;
+}
+
 nav small {
     font-size: 20px;
     margin-top: 30px;
-    color: #670e67;
+    color: #00020b;
 }
 
-logout {
-    display: flex;
-    justify-content: left;
-}
 
 nav small a {
     color: red;
 }
 
-/* Body Styling */
 body {
     padding: 0;
     margin: 0;
     background-color: #ffffff;
 }
 
-/* Main Content Styling */
 main {
     padding: 20px;
 }

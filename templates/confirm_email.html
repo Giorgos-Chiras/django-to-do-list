@@ -24,8 +24,10 @@
 
 <!-- Login Form -->
 <form class="form-with-validation" action="/confirm_email/" method="post">
+<p class="text">A One Time verification code has been send to your email.</p>
+
     {% csrf_token %}
-    <input type="text" placeholder="OTP" name="token">
+    <input type="text" placeholder="e.g. 123456" name="token">
     <br>
     {% for error in form.token.errors %}
         <p style="color: red">{{ error }}</p>

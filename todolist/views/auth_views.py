@@ -1,7 +1,5 @@
 import random
 from email.mime.text import MIMEText
-from urllib import request
-
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -10,6 +8,7 @@ from django.core.cache import cache
 from django.core.exceptions import ValidationError
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.template.defaultfilters import lower
 
 from ..forms import RegisterForm, ConfirmEmailForm, EditPasswordForm, ChangeEmailForm, EmailForm, ChooseNewPasswordForm
 from .email_views import send_email
@@ -23,7 +22,7 @@ def register_form(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
-            user_email = form.cleaned_data['email']
+            user_email = lower(form.cleaned_data['email'])
             user_authentication_code = random.randint(100000, 999999)
             message = f"Your one-time password is: {user_authentication_code}"
 
@@ -167,7 +166,7 @@ def change_email(request):
     if request.method=="POST":
         if form.is_valid():
 
-            old_email = request.user.email
+            old_email = request.user.email.lower()
             new_email = form.cleaned_data['new_email']
 
             if old_email == new_email:
