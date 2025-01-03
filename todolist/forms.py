@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 from todolist.models import AddItem
 
 
+#Form to add new task to your List
 class TaskForm(forms.Form):
 
     name = forms.CharField(max_length=100, required=True)
@@ -14,6 +15,7 @@ class TaskForm(forms.Form):
     image = forms.ImageField(required=False)
 
 
+#Model form that takes a task and allows you to edit it
 class EditTaskForm(forms.ModelForm):
 
     class Meta:
@@ -22,6 +24,7 @@ class EditTaskForm(forms.ModelForm):
         widgets = {'due_date': forms.DateInput(attrs={'type': 'date'}), }
 
 
+#Form to change your password
 class EditPasswordForm(forms.Form):
 
     old_password = forms.CharField(required=True, widget=forms.PasswordInput(attrs={'placeholder': 'Old password'}))
@@ -29,7 +32,7 @@ class EditPasswordForm(forms.Form):
     confirm_password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Confirm Password'}))
 
 
-
+#Custom registration form
 class RegisterForm(UserCreationForm):
     email = forms.EmailField(required=True, widget=forms.EmailInput(attrs={'placeholder': 'e.g. myemail@address.com'}))
     username = forms.CharField(required=True, widget=forms.TextInput(attrs={'placeholder': 'Username'}))
@@ -38,17 +41,14 @@ class RegisterForm(UserCreationForm):
 
     def clean(self):
         cleaned_data = super().clean()
-        password1 = cleaned_data.get('password1')
-        password2 = cleaned_data.get('password2')
-        email = cleaned_data.get('email').lower()
-        email_list = list(User.objects.values_list("email", flat=True))
+        email = cleaned_data.get('email', '').lower()
 
-        if email.lower() in email_list:
+        # Validate email case-insensitively
+        if User.objects.filter(email__iexact=email).exists():
             raise forms.ValidationError("Email already registered")
 
-
-
         return cleaned_data
+
 
     def save(self, commit=True):
         user = User(username=self.cleaned_data['username'],
@@ -61,17 +61,18 @@ class RegisterForm(UserCreationForm):
         return user
 
 
-subject_choices = (
-    ('1', "Account Issues"),
-    ('2', "Task Management"),
-    ('3', "Feature Requests"),
-    ('4', "Bug Reports"),
-    ('5', "General Inquiry"),
-    ('6', "Feedback"),
-    ("7", "Other"))
 
+subject_choices = (
+        ('1', "Account Issues"),
+        ('2', "Task Management"),
+        ('3', "Feature Requests"),
+        ('4', "Bug Reports"),
+        ('5', "General Inquiry"),
+        ('6', "Feedback"),
+        ("7", "Other"))
 
 class ContactForm(forms.Form):
+
     name = forms.CharField(max_length=100, required=True)
     subject = forms.ChoiceField(choices=subject_choices)
     message = forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'Enter your message'}))

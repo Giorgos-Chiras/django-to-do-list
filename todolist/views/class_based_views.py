@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import redirect
 from django.views.generic import ListView
 from django.views.generic import TemplateView
 from ..models import AddItem
@@ -30,5 +31,5 @@ class incomplete_view(LoginRequiredMixin, ListView):
     def get_queryset(self):
         return AddItem.objects.filter(user=self.request.user, completed=False)
 
-class home_view(TemplateView):
-    template_name = "todolist/home.html"
+
+

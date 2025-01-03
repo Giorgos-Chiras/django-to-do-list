@@ -16,7 +16,7 @@ urlpatterns = [
 
     path('login/', views.login, name="login"),
 
-    path('', views.home_view.as_view(), name="home"),
+    path('', views.home_view, name="home"),
 
     path('add_task/',views.task_form, name="edit"),
 

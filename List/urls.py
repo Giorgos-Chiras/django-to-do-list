@@ -5,6 +5,7 @@ from django.conf.urls.static import static
 
 from todolist.views import change_email, change_email_confirmation, forgot_password, forgot_password_confirmation, \
     choose_email, set_notification
+
 from todolist.views.auth_views import (
     register_form, login_form, logout_view, change_user_password, confirm_email_view
 )
@@ -12,9 +13,9 @@ from todolist.views.task_views import (
     task_form, edit_task, delete_view, change_confirmation_view
 )
 from todolist.views.class_based_views import (
-     completed_view, incomplete_view, home_view
+     completed_view, incomplete_view
 )
-from todolist.views.general_views import (about_view,settings_view )
+from todolist.views.general_views import (about_view,settings_view, home_view )
 
 urlpatterns = [
     path('todolist/',include("todolist.urls")),
@@ -31,7 +32,7 @@ urlpatterns = [
 
     path('login/',login_form, name="login"),
 
-    path('',home_view.as_view(),name='home'),
+    path('',home_view ,name='home'),
 
     path('add_task/', task_form, name="add-task"),
 

@@ -1,18 +1,19 @@
 import os
 import smtplib
 from email.mime.text import MIMEText
+from decouple import config
 
 
 def send_email(message, subject="No Subject", to_email=None):
-    from_email = "chiras.to.do.list@gmail.com"
-    email_password = os.getenv('EMAIL_HOST_PASSWORD')
+    from_email = config('EMAIL_HOST_USER')
+    email_password = config('EMAIL_HOST_PASSWORD')
 
+    #Make the message into a MIMEText
     if not isinstance(message, MIMEText):
         msg= MIMEText(message)
         msg["Subject"] = subject or "No Subject"
 
         message=msg.as_string()
-
     else:
         message = message.as_string()
 

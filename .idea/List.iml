@@ -14,7 +14,11 @@
   </component>
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/.idea/dataSources" />
+      <excludeFolder url="file://$MODULE_DIR$/.idea/httpRequests" />
       <excludeFolder url="file://$MODULE_DIR$/.venv" />
+      <excludeFolder url="file://$MODULE_DIR$/vcpkg/buildtrees" />
+      <excludeFolder url="file://$MODULE_DIR$/vcpkg/installed" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.11 (List)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />

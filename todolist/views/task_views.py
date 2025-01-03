@@ -1,6 +1,4 @@
 import datetime
-from email.mime.text import MIMEText
-
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils.timezone import make_aware

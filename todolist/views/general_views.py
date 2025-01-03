@@ -9,21 +9,26 @@ from ..forms import subject_choices
 
 
 @login_required(login_url='login')
+#View to manage contact form
 def about_view(request):
     form = ContactForm(request.POST)
 
     if request.method == "POST":
         user_email = request.user.email
+
         if form.is_valid():
+
             user_name = form.cleaned_data['name']
             message = form.cleaned_data['message']
             subject = form.cleaned_data['subject']
 
+            #Get subject as a string
             for id, name in subject_choices:
                 if id == subject:
                     subject = name
                     break
 
+            #Create and send email
             msg = MIMEText(message)
             msg["Subject"] = f"New contact from {user_name} ({user_email}) Subject: {subject}"
 
@@ -36,4 +41,10 @@ def about_view(request):
 @login_required(login_url='login')
 def settings_view(request):
        return render(request, 'todolist/settings.html')
+
+def home_view(request):
+    if request.user.is_authenticated:
+        return redirect('index')
+    else:
+        return render(request, "todolist/home.html")
 
