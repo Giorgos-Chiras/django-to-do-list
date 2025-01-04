@@ -1,3 +1,3 @@
-web: uvicorn List.wsgi
+web: uvicorn List.asgi:application --host 0.0.0.0 --port $PORT
 worker: celery -A List worker --loglevel=info
 beat: celery -A List beat --loglevel=info
