@@ -35,6 +35,7 @@ CACHES = {
 }
 
 ALLOWED_HOSTS = ['django-to-do-list-production.up.railway.app', 'localhost', '127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://django-to-do-list-production.up.railway.app']
 
 DATE_INPUT_FORMATS = ['%d/%m/%Y']
 
@@ -149,8 +150,6 @@ STATIC_URL = config('STATIC_URL', default='/static/')
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
 
 MEDIA_URL = config('MEDIA_URL', default='/media/')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
