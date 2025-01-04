@@ -34,6 +34,8 @@ CACHES = {
     }
 }
 
+ALLOWED_HOSTS = ['django-to-do-list-production.up.railway.app', 'localhost', '127.0.0.1']
+
 DATE_INPUT_FORMATS = ['%d/%m/%Y']
 
 CELERY_BROKER_URL = config('CELERY_BROKER_URL')
@@ -59,7 +61,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # Application definition
 
