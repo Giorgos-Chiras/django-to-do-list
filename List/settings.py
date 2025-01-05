@@ -34,7 +34,7 @@ CACHES = {
     }
 }
 
-ALLOWED_HOSTS = ['django-List-production.up.railway.app', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['django-to-do-list-production.up.railway.app', 'localhost', '127.0.0.1']
 CSRF_TRUSTED_ORIGINS = ['https://django-to-do-list-production.up.railway.app']
 
 DATE_INPUT_FORMATS = ['%d/%m/%Y']
@@ -75,6 +75,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'todolist.apps.TodolistConfig',
     'List',
+    'whitenoise.runserver_nostatic',
+
 ]
 
 MIDDLEWARE = [
@@ -85,6 +87,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = 'List.urls'
@@ -145,8 +148,9 @@ USE_I18N = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = config('STATIC_URL', default='/static/')
+STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE="whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 # Default primary key field type
