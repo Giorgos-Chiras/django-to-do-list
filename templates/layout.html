@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<link rel="shortcut icon" type="image/x-icon" href="../media/favicon.ico" />
     <meta charset="UTF-8">
     <title>
         {% block title %}App{% endblock %}
     </title>
     
    {% load static %}
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+
     <link rel="stylesheet" href="{% static 'layout.css' %}">
 </head>
 <body>

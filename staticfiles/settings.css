@@ -1,0 +1,70 @@
+
+
+.label {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 30px;
+    text-decoration: underline;
+    font-family: 'Cambria Math', serif;
+}
+
+.info {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 30px;
+    color: #670e67;
+    font-family: 'Cambria Math', serif;
+}
+
+.container {
+    display: inline-block;
+    text-align: center;
+    border: 3px solid black;
+    border-radius: 5px;
+    padding: 20px;
+    width: 60%;
+}
+
+.center-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+
+.link {
+    background-color: #670e67;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Cambria Math', serif;
+    font-size: 20px;
+    width: 40%;
+    box-shadow: 2px 2px 2px #0b0000;
+    transition: background-color 0.3s ease;
+
+}
+
+.link:hover {
+    background-color: #9b4d9b;
+}
+
+.error{
+    color: red;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.success{
+    color: green;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+
+
+
