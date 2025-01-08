@@ -1,31 +1,33 @@
 .centered-title {
     font-family: 'Cambria Math', serif;
-    text-align: left;
-    margin: 20px 0;
+
 }
 
 .centered-text {
     width: 50%;
     font-family: 'Cambria Math', serif;
-    margin: 0 auto;
+
 }
 
 .centered-subtitle {
     text-align: center;
     font-family: 'Cambria Math', serif;
     color: black;
+
+
 }
 
 .left-subtitle {
     width: 50%;
     text-align: left;
     font-family: 'Cambria Math', serif;
-    margin: 0 auto;
 }
+
 
 .table {
     border-collapse: collapse;
     width: 100%;
+
 }
 
 .form-name {
@@ -38,6 +40,9 @@
     text-align: center;
     font-weight: bold;
     font-family: 'Cambria Math', serif;
+    color: black;
+
+
 }
 
 .form-message {
@@ -49,14 +54,17 @@
     font-weight: bold;
     font-family: 'Cambria Math', serif;
     color: black;
+
+
 }
 
 .subject {
     text-align: center;
     font-weight: bold;
     font-family: 'Cambria Math', serif;
-    color: black;
+
 }
+
 
 .split {
     height: 100%;
@@ -66,7 +74,9 @@
     top: 0;
     overflow-x: hidden;
     padding-top: 20px;
+
 }
+
 
 .left {
     background-color: #ffffff;
@@ -75,22 +85,21 @@
 }
 
 .right {
-    margin-top: 232px;
+
+    background-color: #ffffff;
+    margin-top: 246px;
     right: 0;
-    width: 50%;
     color: white;
-    height: 100%;
-    padding: 20px;
-    position: fixed;
 }
 
 button {
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
+
     color: white;
     background-color: green;
     border-radius: 5px;
+
     padding: 10px;
     border: none;
     cursor: pointer;
@@ -113,49 +122,23 @@ form input {
     width: 50%;
 }
 
+
 form select {
     font-weight: bold;
-    width: 53%;
+    width: 53%
+
 }
 
 textarea {
     padding: 10px;
     margin: 10px;
     border-radius: 5px;
+    min-width: 50%;
+    max-width: 50%;
+
     width: 50%;
     height: 80%;
-    resize: vertical;
-    box-sizing: border-box;
-}
 
-@media (max-width: 768px) {
-    .centered-text, .left-subtitle, form input, form select, textarea {
-        width: 90%;
-    }
-
-    .split {
-        width: 100%;
-        position: relative;
-        height: auto;
-    }
-
-    .left, .right {
-        width: 100%;
-        margin: 0;
-        padding: 20px;
-        height: auto;
-        position: relative;
-    }
-
-    .right {
-        margin-top: 20px;
-    }
-
-    button {
-        position: relative;
-        left: auto;
-        transform: none;
-        margin: 20px auto;
-        display: block;
-    }
+    min-height: 80%;
+    max-height: 80%;
 }
