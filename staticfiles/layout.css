@@ -9,8 +9,7 @@
     text-align: center;
     font-size: 100px;
     font-family: 'Cambria Math', serif;
-    margin-top: 0px;
-    margin-bottom: -30px;
+    margin-bottom: -50px;
 }
 
 .header h3 {
@@ -28,7 +27,9 @@ nav {
 }
 
 nav .nav-links {
-    font-size: 50px;
+    font-size: 4rem;
+    background: #0b0000;
+    font-family: "Noto Color Emoji", sans-serif
 
 }
 
