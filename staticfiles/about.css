@@ -1,97 +1,77 @@
+/* General Styles */
 .centered-title {
-        font-family: 'Cambria Math', serif;
-
+    font-family: 'Cambria Math', serif;
+    text-align: left;
+    margin: 10px 0;
 }
 
 .centered-text {
-    width: 50%;
+    width: 90%; /* Default to a smaller width for better scaling */
+    margin: 0 auto; /* Center the text container */
     font-family: 'Cambria Math', serif;
-
 }
 
 .centered-subtitle {
     text-align: center;
     font-family: 'Cambria Math', serif;
-
 }
 
 .left-subtitle {
-    width: 50%;
+    width: 90%; /* Reduced width for better display on smaller screens */
+    margin: 0 auto;
     text-align: left;
     font-family: 'Cambria Math', serif;
 }
 
-
+/* Table Styling */
 .table {
     border-collapse: collapse;
-    width: 100%;
-
+    width: 100%; /* Full width to adjust to any screen size */
+    margin: 20px 0;
 }
 
-.form-name{
-    text-align: center;
-    font-weight: bold;
-}
-.name{
+/* Form Titles and Labels */
+.form-name, .name, .form-message, .message, .subject {
     text-align: center;
     font-weight: bold;
     font-family: 'Cambria Math', serif;
-
-
+    margin: 10px 0;
 }
 
-.form-message{
-    text-align: center;
-}
-
-.message {
-    text-align: center;
-    font-weight: bold;
-    font-family: 'Cambria Math', serif;
-
-}
-
-.subject {
-    text-align: center;
-    font-weight: bold;
-    font-family: 'Cambria Math', serif;
-
-}
-
-
-.split{
+/* Split Layout */
+.split {
     height: 100%;
     width: 50%;
     position: fixed;
-    z-index: 1;
     top: 0;
-    overflow-x:hidden;
+    z-index: 1;
+    overflow-x: hidden;
     padding-top: 20px;
-
 }
 
-
+/* Left Section */
 .left {
     background-color: #ffffff;
-    left:0;
+    left: 0;
     margin-top: 215px;
 }
-.right {
 
+/* Right Section */
+.right {
     background-color: #670e67;
-    margin-top:214px;
-    right:0;
+    right: 0;
+    margin-top: 214px;
     color: white;
 }
 
+/* Buttons */
 button {
     position: absolute;
     left: 50%;
-
+    transform: translateX(-50%); /* Center button horizontally */
     color: white;
     background-color: green;
     border-radius: 5px;
-
     padding: 10px;
     border: none;
     cursor: pointer;
@@ -102,40 +82,66 @@ button:hover {
     background-color: darkgreen;
 }
 
+/* Form Inputs and Selects */
 form input, form select {
     padding: 10px;
     margin: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
-    font-size: 1.5rem;
+    font-size: 1.2rem; /* Reduced font size for mobile compatibility */
+    width: 90%; /* Adjusted width for responsiveness */
+    box-sizing: border-box; /* Prevent overflow */
 }
 
-form input{
-    width: 50%;
-}
-
-
-form select{
+form select {
     font-weight: bold;
-    width: 53%
-
 }
 
-textarea{
+/* Textarea */
+textarea {
     padding: 10px;
     margin: 10px;
     border-radius: 5px;
-    min-width: 50%;
-    max-width: 50%;
-
-    width: 50%;
-    height: 80%;
-
-    min-height: 80%;
-    max-height: 80%;
-
-
+    border: 1px solid #ccc;
+    width: 90%; /* Adjusted width */
+    height: 150px; /* Standard height */
+    box-sizing: border-box;
+    resize: vertical; /* Allow resizing for better UX */
 }
 
+/* Media Query for Mobile */
+@media (max-width: 768px) {
+    .split {
+        width: 100%;
+        position: relative; /* Stack sections for vertical scrolling */
+        margin: 0;
+    }
+
+    .left, .right {
+        margin-top: 0;
+        padding: 10px; /* Add padding for readability */
+    }
+
+    .centered-text, .left-subtitle {
+        width: 100%; /* Full width on smaller screens */
+        margin: 0 auto;
+    }
+
+    button {
+        position: relative;
+        left: auto;
+        transform: none; /* Remove centering logic */
+        margin: 20px auto;
+        display: block;
+    }
+
+    form input, form select, textarea {
+        width: 100%; /* Full width for smaller screens */
+    }
+
+    textarea {
+        height: auto; /* Let height adjust naturally */
+    }
+}
 
 
