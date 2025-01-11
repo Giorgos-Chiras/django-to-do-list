@@ -159,7 +159,7 @@ STATICFILES_STORAGE="whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-MEDIA_ROOT='/mnt/data/media'
+MEDIA_ROOT = config('MEDIA_ROOT', default='/mnt/data/media')
 MEDIA_URL = '/media/'
 
 LOGIN_REDIRECT_URL = "/index"
