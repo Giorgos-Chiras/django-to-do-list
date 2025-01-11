@@ -7,9 +7,7 @@ from decouple import config
 
 
 def user_upload_to(instance, filename):
-    media_root = config('MEDIA_ROOT', default='/mnt/data/default_media_folder/media/')
-
-    return os.path.join(media_root, 'task_pictures', str(instance.user.username), filename)
+    return os.path.join('task_pictures', str(instance.user.username), filename)
 
 class AddItem(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
