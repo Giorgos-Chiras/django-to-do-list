@@ -87,7 +87,6 @@ form button:hover {
     background-color: #9b4d9b;
 }
 
-/* Mobile responsiveness */
 @media (max-width: 768px) {
     .submit-button, .cancel_button,form button {
         width: 80%;
