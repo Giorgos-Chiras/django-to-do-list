@@ -99,6 +99,18 @@ a {
 }
 
 
+@media (max-width: 768px) {
+    .submit-button, .cancel_button,form button {
+        width: 80%;
+        padding: 15px;
+        font-size: 1.2em;
+    }
+
+    form input {
+        width: 90%;
+    }
+}
+
 
 
 
