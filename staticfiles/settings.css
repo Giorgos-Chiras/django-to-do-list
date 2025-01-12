@@ -73,7 +73,7 @@
     }
 
     .container {
-        width: 95%;
+        width: 55%;
         padding: 10px;
     }
 
@@ -84,7 +84,7 @@
     }
 
     .link {
-        width: 90%;
+        width: 60%;
         font-size: 1rem;
     }
 }
