@@ -1,9 +1,7 @@
-
-
+/* General Styles */
 .underlined-title {
     text-align: center;
-    background-size:auto 2px;
-
+    background-size: auto 2px;
 }
 
 .no-items {
@@ -11,11 +9,10 @@
     text-align: left;
 }
 
-.complete-text{
+.complete-text {
     color: red;
     text-decoration: line-through;
     text-align: left;
-
 }
 
 .complete-due-date {
@@ -23,26 +20,22 @@
     text-decoration: line-through;
     font-family: 'Cambria Math', serif;
     margin-left: 150px;
-
-
 }
+
 .due-date {
     color: #037118;
     font-family: 'Cambria Math', serif;
     margin-left: 150px;
-
 }
 
 .task-image {
     width: 50px;
     margin-left: 35px;
-
 }
 
-table{
+table {
     font-family: 'Cambria Math', serif;
-    font-size:1.3rem;
-
+    font-size: 1.3rem;
 }
 
 input[type="checkbox"] {
@@ -90,7 +83,7 @@ input[type="checkbox"]:checked::after {
     border: 1px solid black;
     padding: 5px 10px;
     text-decoration: none;
-    margin-left:35px
+    margin-left: 35px;
 }
 
 .delete-link:hover {
@@ -100,18 +93,17 @@ input[type="checkbox"]:checked::after {
 .table-titles {
     text-align: center;
     padding: 12px;
-
     font-weight: bold;
     margin: 0 auto;
-
 }
+
 th, td {
     text-align: left;
     padding: 12px;
 }
 
-th.table-titles{
- text-align: center;
+th.table-titles {
+    text-align: center;
     font-weight: bold;
     background-color: #f4f4f4;
     padding: 12px;
@@ -126,9 +118,54 @@ table {
 tbody {
     border: 3px solid black;
     border-collapse: collapse;
-    border-radius:10px
+    border-radius: 10px;
 }
 
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .underlined-title {
+        font-size: 1.2rem;
+        padding: 10px;
+    }
+
+    .task-image {
+        width: 40px;
+        margin-left: 10px;
+    }
+
+    table {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+
+    .complete-due-date, .due-date {
+        margin-left: 20px;
+        font-size: 0.9rem;
+    }
+
+    .delete-link {
+        padding: 5px 8px;
+        margin-left: 10px;
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    .submit-button, .cancel_button,form button {
+        width: 80%;
+        padding: 15px;
+        font-size: 1.2em;
+    }
+
+    form input {
+        width: 90%;
+    }
+}
 
 
 
