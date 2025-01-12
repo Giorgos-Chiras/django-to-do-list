@@ -1,5 +1,3 @@
-
-
 .label {
     display: inline-block;
     font-weight: bold;
@@ -14,6 +12,7 @@
     font-size: 30px;
     color: #670e67;
     font-family: 'Cambria Math', serif;
+    word-wrap: break-word; /* Ensures long words break to the next line */
 }
 
 .container {
@@ -24,6 +23,7 @@
     padding: 20px;
     margin: 20px;
     width: 90%;
+    overflow-wrap: break-word; /* Prevents content from overflowing the container */
 }
 
 .center-wrapper {
@@ -31,9 +31,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
 }
-
 
 .link {
     background-color: #670e67;
@@ -47,24 +45,51 @@
     width: 40%;
     box-shadow: 2px 2px 2px #0b0000;
     transition: background-color 0.3s ease;
-
 }
 
 .link:hover {
     background-color: #9b4d9b;
 }
 
-.error{
+.error {
     color: red;
     font-weight: bold;
     font-size: 1.5em;
 }
 
-.success{
+
+.success {
     color: green;
     font-weight: bold;
     font-size: 1.5em;
 }
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .label, .info {
+        font-size: 1.2rem; /* Adjust text size for mobile screens */
+        display: block; /* Makes text stack vertically */
+        text-align: center; /* Centers text inside the container */
+    }
+
+    .container {
+        width: 95%; /* Maximize the container width on mobile */
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+
+    .info {
+        word-wrap: break-word; /* Ensures long text breaks properly */
+        overflow-wrap: break-word; /* Prevents overflow issues */
+        text-align: left; /* Adjust alignment for readability */
+    }
+
+    .link {
+        width: 90%; /* Make the link button take more space on mobile */
+        font-size: 1rem; /* Adjust font size for smaller screens */
+    }
+}
+
+
 
 
 
