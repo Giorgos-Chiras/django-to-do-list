@@ -8,11 +8,13 @@
     <title>
         {% block title %}App{% endblock %}
     </title>
-    
+
     {% load static %}
     <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
 
+
     <link href="https://fonts.googleapis.com/css2?family=Noto+Emoji&display=swap" rel="stylesheet">
+
 
     <link rel="stylesheet" href="{% static 'layout.css' %}">
 
@@ -21,32 +23,33 @@
             font-family: 'Noto Emoji', sans-serif;
         }
     </style>
+
 </head>
 
 <body>
-    <div class="header">
-        <h1 class="main-title">
-            To Do List
-            <h3 class="sub-title">A small project by Giorgos Chiras</h3>
-        </h1>
+<div class="header">
+    <h1 class="main-title">
+        To Do List
+        <h3 class="sub-title">A small project by Giorgos Chiras</h3>
+    </h1>
+</div>
+
+<!-- Navigation Bar -->
+<nav>
+    <div class="nav-links">
+        <a class="emoji" title="To Do List" href="/todolist">📋</a>
+        <a class="emoji" title="Add Task" href="/add_task">📝</a>
+        <a class="emoji" title="Completed" href="/completed">✅</a>
+        <a class="emoji" title="Incomplete" href="/incomplete">❌</a>
+        <a class="emoji" title="About Me" href="/about">👨‍💻</a>
+        <a class="emoji" title="Settings" href="/settings">🔧</a>
     </div>
+</nav>
 
-    <!-- Navigation Bar -->
-    <nav>
-        <div class="nav-links">
-            <a class="emoji" title="To Do List" href="/todolist">📋</a>
-            <a class="emoji" title="Add Task" href="/add_task">📝</a>
-            <a class="emoji" title="Completed" href="/completed">✅</a>
-            <a class="emoji" title="Incomplete" href="/incomplete">❌</a>
-            <a class="emoji" title="About Me" href="/about">👨‍💻</a>
-            <a class="emoji" title="Settings" href="/settings">⚙️</a>
-        </div>
-    </nav>
-
-    <main>
-        {% block content %}
-        {% endblock %}
-    </main>
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
 </body>
 
 </html>

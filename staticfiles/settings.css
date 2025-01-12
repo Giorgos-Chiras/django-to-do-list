@@ -67,25 +67,25 @@
 /* Mobile Styles */
 @media (max-width: 768px) {
     .label, .info {
-        font-size: 1.2rem; /* Adjust text size for mobile screens */
-        display: block; /* Makes text stack vertically */
-        text-align: center; /* Centers text inside the container */
+        font-size: 1.2rem;
+        display: block;
+        text-align: center;
     }
 
     .container {
-        width: 95%; /* Maximize the container width on mobile */
-        padding: 10px; /* Reduce padding for smaller screens */
+        width: 95%;
+        padding: 10px;
     }
 
     .info {
-        word-wrap: break-word; /* Ensures long text breaks properly */
-        overflow-wrap: break-word; /* Prevents overflow issues */
-        text-align: left; /* Adjust alignment for readability */
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        text-align: left;
     }
 
     .link {
-        width: 90%; /* Make the link button take more space on mobile */
-        font-size: 1rem; /* Adjust font size for smaller screens */
+        width: 90%;
+        font-size: 1rem;
     }
 }
 
