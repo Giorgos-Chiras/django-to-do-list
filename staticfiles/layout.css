@@ -1,7 +1,15 @@
-/* Header Section */
+html, body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: scroll;
+}
+
 .header {
     background-color: #0b0000;
     padding: 1px;
+    width: 100%;
 }
 
 .header h1 {
@@ -9,51 +17,64 @@
     text-align: center;
     font-size: 100px;
     font-family: 'Cambria Math', serif;
-    margin-top: 0px;
-    margin-bottom: -30px;
+    margin: 0;
 }
 
 .header h3 {
     color: #670e67;
     text-align: center;
+    margin: 0;
 }
 
-/* Navigation Section */
 nav {
     display: flex;
     background: #0b0000;
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding: 10px 0;
 }
 
 nav .nav-links {
-    font-size: 50px;
-
+    font-size: 4rem;
 }
 
 nav .nav-links a {
     text-decoration: none;
+    margin: 0 15px;
+    color: #670e67;
 }
 
 nav small {
     font-size: 20px;
-    margin-top: 30px;
+    margin-top: 20px;
     color: #00020b;
 }
 
-
 nav small a {
     color: red;
+    text-decoration: none;
 }
 
 body {
-    padding: 0;
-    margin: 0;
-    background-color: #ffffff;
+    font-family: 'Cambria Math', serif;
 }
 
 main {
     padding: 20px;
 }
 
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 60px;
+    }
+
+    nav .nav-links {
+        font-size: 2.5rem;
+    }
+
+    nav .nav-links a {
+        margin: 0 10px;
+    }
+}

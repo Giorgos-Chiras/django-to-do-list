@@ -1,0 +1,134 @@
+
+
+.underlined-title {
+    text-align: center;
+    background-size:auto 2px;
+
+}
+
+.no-items {
+    color: red;
+    text-align: left;
+}
+
+.complete-text{
+    color: red;
+    text-decoration: line-through;
+    text-align: left;
+
+}
+
+.complete-due-date {
+    color: red;
+    text-decoration: line-through;
+    font-family: 'Cambria Math', serif;
+    margin-left: 150px;
+
+
+}
+.due-date {
+    color: #037118;
+    font-family: 'Cambria Math', serif;
+    margin-left: 150px;
+
+}
+
+.task-image {
+    width: 50px;
+    margin-left: 35px;
+
+}
+
+table{
+    font-family: 'Cambria Math', serif;
+    font-size:1.3rem;
+
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    height: 25px;
+    width: 25px;
+    background-color: #f0f0f0;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+input[type="checkbox"]:hover {
+    border-color: #5a015a;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #5a015a;
+    border: 2px solid #000000;
+    border-radius: 5px;
+}
+
+input[type="checkbox"]:checked::after {
+    content: '✔';
+    color: white;
+    font-size: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+}
+
+.empty-cell {
+    width: 50px;
+    height: 50px;
+}
+
+.delete-link {
+    background-color: #0b0000;
+    color: white;
+    border: 1px solid black;
+    padding: 5px 10px;
+    text-decoration: none;
+    margin-left:35px
+}
+
+.delete-link:hover {
+    background-color: red;
+}
+
+.table-titles {
+    text-align: center;
+    padding: 12px;
+
+    font-weight: bold;
+    margin: 0 auto;
+
+}
+th, td {
+    text-align: left;
+    padding: 12px;
+}
+
+th.table-titles{
+ text-align: center;
+    font-weight: bold;
+    background-color: #f4f4f4;
+    padding: 12px;
+    border: 3px solid #00020b;
+}
+
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+tbody {
+    border: 3px solid black;
+    border-collapse: collapse;
+    border-radius:10px
+}
+
+
+
+

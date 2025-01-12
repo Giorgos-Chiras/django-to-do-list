@@ -1,0 +1,104 @@
+/* General Body Styling */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+}
+
+/* Header Section */
+.header {
+    background-color: #0b0000;
+    padding: 20px;
+}
+
+.text{
+    text-align: center;
+    font-size: 1.5em;
+    font-family: 'Cambria Math', serif;
+}
+
+
+.header h1 {
+    color: #670e67;
+    text-align: center;
+    font-size: 100px;
+    font-family: 'Cambria Math', serif;
+    margin-top: -20px;
+    margin-bottom: -30px;
+}
+
+.header h3 {
+    color: #670e67;
+    text-align: center;
+}
+
+/* Login Form Styling */
+form {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.5rem;
+}
+
+form input {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    width: 300px;
+    border: 1px solid #ccc;
+    font-size: 1.5rem;
+}
+
+form button {
+    background-color: #670e67;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Cambria Math', serif;
+    font-size: 20px;
+    width: 10%;
+    box-shadow: 2px 2px 2px #0b0000;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #9b4d9b;
+}
+
+form p {
+    color: #000000;
+}
+
+a {
+    text-decoration: none;
+    color: #670e67;
+    font-size: 20px;
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+
+}
+
+.go-back-link{
+    text-align: left;
+    font-size: 50px;
+    position: fixed;
+}
+
+.error{
+    color: red;
+    font-weight: bold;
+
+}
+
+.errorlist li{
+    color: red;
+    text-align: center;
+    list-style-type: none;
+}
+
+
+
+
+
