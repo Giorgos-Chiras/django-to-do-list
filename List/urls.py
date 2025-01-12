@@ -1,7 +1,7 @@
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from django.conf import settings
-from django.conf.urls.static import static
+from django.views.static import serve
 
 from todolist.views import change_email, change_email_confirmation, forgot_password, forgot_password_confirmation, \
     choose_email, set_notification
@@ -62,5 +62,11 @@ urlpatterns = [
 
     path('set_notification/<part_id>', set_notification, name="set_notification"),
 
-    ]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    ]
+
+if not settings.DEBUG:
+    urlpatterns += [
+        re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
+    ]
+
 
