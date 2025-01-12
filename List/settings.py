@@ -35,7 +35,7 @@ CACHES = {
 }
 
 ALLOWED_HOSTS = ['django-to-do-list.up.railway.app', 'localhost', '127.0.0.1']
-CSRF_TRUSTED_ORIGINS = ['https://django-to-do-list-production.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://django-to-do-list.up.railway.app']
 
 DATE_INPUT_FORMATS = ['%d/%m/%Y']
 
