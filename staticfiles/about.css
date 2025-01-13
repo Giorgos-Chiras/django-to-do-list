@@ -1,0 +1,162 @@
+/* General Styles */
+.centered-title {
+    font-family: 'Cambria Math', serif;
+}
+
+.centered-text {
+    width: 50%;
+    font-family: 'Cambria Math', serif;
+}
+
+.centered-subtitle {
+    text-align: center;
+    font-family: 'Cambria Math', serif;
+    color: black;
+}
+
+.left-subtitle {
+    width: 50%;
+    text-align: left;
+    font-family: 'Cambria Math', serif;
+}
+
+.table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.form-name {
+    text-align: center;
+    font-weight: bold;
+    color: black;
+}
+
+.name {
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Cambria Math', serif;
+    color: black;
+}
+
+.form-message {
+    text-align: center;
+}
+
+.message {
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Cambria Math', serif;
+    color: black;
+}
+
+.subject {
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Cambria Math', serif;
+}
+
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.left {
+    background-color: #ffffff;
+    left: 0;
+    margin-top: 215px;
+}
+
+.right {
+    background-color: #ffffff;
+    margin-top: 250px;
+    right: 0;
+    color: white;
+}
+
+button {
+    position: absolute;
+    left: 50%;
+    color: white;
+    background-color: green;
+    border-radius: 5px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+button:hover {
+    background-color: darkgreen;
+}
+
+form input,
+form select {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1.5rem;
+}
+
+form input {
+    width: 50%;
+}
+
+form select {
+    font-weight: bold;
+    width: 53%;
+}
+
+textarea {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    min-width: 50%;
+    max-width: 50%;
+    width: 50%;
+    height: 80%;
+    min-height: 80%;
+    max-height: 80%;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .split {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .left {
+        margin-top: 0;
+        width: 100%;
+        margin-bottom: 20px; /* Space between left and right */
+    }
+
+    .right {
+        margin-top: 0;
+        width: 100%;
+    }
+
+    button {
+        position: relative;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        display: block;
+        width: 80%; /* Button will be a bit smaller */
+    }
+
+    form input,
+    form select,
+    textarea {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

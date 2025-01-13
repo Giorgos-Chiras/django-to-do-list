@@ -3,6 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>
         {% block title %}To Do List{% endblock %}
     </title>
@@ -12,34 +14,34 @@
 </head>
 
 <body>
-    <div class="header">
-        <h1 class="main-title">
-            To Do List
-        </h1>
-        <h3 class="sub-title">A small project by Giorgos Chiras</h3>
-    </div>
+<div class="header">
+    <h1 class="main-title">
+        To Do List
+    </h1>
+    <h3 class="sub-title">A small project by Giorgos Chiras</h3>
+</div>
 
-    <section class="intro-text">
-        <h3>Stay organized and productive by keeping track of your tasks and goals. Start now and achieve more today.</h3>
-    </section>
+<section class="intro-text">
+    <h3>Stay organized and productive by keeping track of your tasks and goals. Start now and achieve more today.</h3>
+</section>
 
-    <section class="features">
-        <h2 class="feature-item">
-            <img src="media/tick.png" alt="tick" class="tick-icon"> Quickly add and organize your tasks.
-        </h2>
-        <h2 class="feature-item">
-            <img src="media/tick.png" alt="tick" class="tick-icon"> Mark tasks as completed and track your progress.
-        </h2>
-        <h2 class="feature-item">
-            <img src="media/tick.png" alt="tick" class="tick-icon"> Simple and intuitive interface for all your needs.
-        </h2>
-    </section>
+<section class="features">
+    <h2 class="feature-item">
+        <img src="{% static 'tick.png' %}" alt="tick" class="tick-icon"> Quickly add and organize your tasks.
+    </h2>
+    <h2 class="feature-item">
+        <img src="{% static 'tick.png' %}"  alt="tick" class="tick-icon"> Mark tasks as completed and track your progress.
+    </h2>
+    <h2 class="feature-item">
+        <img src="{% static 'tick.png' %}" alt="tick" class="tick-icon"> Simple and intuitive interface for all your needs.
+    </h2>
+</section>
 
-    <div class="start-now-button">
-        <a href="{% url 'index' %}" class="start-now-link">
-            <h2>Start Now!</h2>
-        </a>
-    </div>
+<div class="start-now-button">
+    <a href="{% url 'index' %}" class="start-now-link">
+        <h2>Start Now!</h2>
+    </a>
+</div>
 </body>
 
 </html>

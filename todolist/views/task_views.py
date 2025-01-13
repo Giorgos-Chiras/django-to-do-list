@@ -131,6 +131,9 @@ def set_notification(request, part_id=None):
             # Calculate the delay (seconds) until the scheduled time
             delay = (send_date - now).total_seconds()
 
+            #Since railway(my deployment service) timezone is UTC I am adjusting it so it is in EET
+            delay = delay - 7200
+
             print(f"Scheduled time: {send_date}")
             print(f"Current time: {now}")
             print(f"Calculated delay: {delay} seconds")

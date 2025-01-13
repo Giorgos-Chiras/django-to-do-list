@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.utils import timezone
 import os
+from decouple import config
+
 
 def user_upload_to(instance, filename):
     return os.path.join('task_pictures', str(instance.user.username), filename)
